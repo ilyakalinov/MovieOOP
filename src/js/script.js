@@ -1,21 +1,5 @@
-import getPopMovies from "./moduls/getPopMovies";
-import trailers from "./moduls/trailers";
-import informationBox from "./moduls/information";
-import randomMovie from "./moduls/randomMovie";
-import { videoPlayer } from "./moduls/services/videoPlayer";
-import person from "./moduls/person";
-import bd from "./moduls/bd";
-import mp from "./moduls/mp";
-import wallpapers from "./moduls/wallpapers";
-import scrollTo from "./moduls/services/scrollTo";
-import {scrollBtn} from './moduls/services/scrollBtn';
-import './moduls/gallery';
-import search from "./moduls/services/search";
-import top from "./moduls/top";
-import budget from "./moduls/boxOffice";
-import mobMenu from "./moduls/services/mobMenu";
-import slider from "./moduls/slider";
-import middleMovie from "./moduls/middle";
+import PopMovies from "./moduls/getPopMovies";
+import ScrollTo from "./moduls/services/scrollTo";
 
 const API_KEY = 'api_key=84dadd31473be27d40ab4886ee4c7978',
     BASE_URL = 'https://api.themoviedb.org/3',
@@ -53,23 +37,8 @@ const genres = [{"id":28,"name":"Action"},
 export {genres};
 
 window.addEventListener('DOMContentLoaded', () => {
-    // mobMenu();
-    middleMovie(POPULAR_MOVIE)
-    slider();
-    getPopMovies(POPULAR_MOVIE, 35000);
-    trailers();
-    informationBox(POPULAR_MOVIE);
-    videoPlayer()
-    randomMovie(10000);
-    person();
-    bd();
-    mp();
-    wallpapers();
-    scrollTo();
-    scrollBtn();
-    search();
-    top();
-    budget();
+    new PopMovies(POPULAR_MOVIE).init();
+    new ScrollTo().init();
     // getData(POPULAR_MOVIE + 1)
     //     .then(data => {
     //         getInfo(data.results[0].id)
