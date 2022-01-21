@@ -1,0 +1,1099 @@
+body {
+  background-color: #5f7ad3; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+.overlay {
+  scroll-behavior: smooth; }
+
+body {
+  width: 98vw;
+  height: 100vh;
+  display: grid;
+  place-items: center; }
+
+.person__img {
+  cursor: pointer; }
+
+.container__play {
+  position: absolute;
+  top: 160px;
+  left: 30%;
+  height: 50px;
+  width: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  padding: 4rem;
+  background: #efeeee;
+  border-radius: 50%;
+  transition: all 0.3s ease-in;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1), -10px -10px 10px rgba(255, 255, 255, 0.336); }
+
+.container__play .fas {
+  position: relative;
+  top: -31px;
+  left: -18px;
+  display: grid;
+  place-items: center;
+  font-size: 4rem;
+  color: gray; }
+
+.container__play:active {
+  box-shadow: inset 10px 10px 10px rgba(0, 0, 0, 0.1), inset -10px -10px 10px rgba(255, 255, 255, 0.6); }
+
+.container__play:active .fas {
+  color: #1e51fa; }
+
+.container {
+  max-width: 96%; }
+
+.title {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal; }
+
+.now__menu {
+  transition: top 1s;
+  top: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-image: url("../img/nowplaylay.png");
+  width: 100%;
+  height: 100%;
+  text-align: center; }
+  .now__menu span {
+    font-family: Actor;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px; }
+  .now__menu .menu__item {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-top: 14%;
+    cursor: pointer; }
+    .now__menu .menu__item:hover {
+      background-image: url("../img/fog.png"); }
+    .now__menu .menu__item img {
+      height: 40px;
+      width: 40px; }
+
+.genre__box {
+  position: relative;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.185292);
+  border-radius: 4px;
+  padding: 4px 5px 0 8px; }
+  .genre__box .genre__box__color {
+    position: absolute;
+    width: 4px;
+    background-color: green;
+    height: 22px;
+    top: 0;
+    border-radius: 4px 0 0 4px;
+    left: 0; }
+    .genre__box .genre__box__color div {
+      opacity: 0; }
+
+.header__hight {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  margin-top: 100px;
+  height: 80px; }
+  .header__hight .header__label {
+    margin: 15px 20px; }
+    .header__hight .header__label h1 {
+      font-family: Impact;
+      font-size: 50px;
+      font-weight: 400; }
+    .header__hight .header__label a {
+      text-decoration: none;
+      font-family: Impact;
+      font-size: 50px;
+      font-weight: 400;
+      color: black;
+      cursor: pointer; }
+  .header__hight .header__menu {
+    text-align: center; }
+    .header__hight .header__menu .header__menu__inner {
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      width: 680px;
+      font-family: Actor;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 19px;
+      line-height: 19px; }
+      .header__hight .header__menu .header__menu__inner .menu__items {
+        font-family: Actor;
+        width: 140px;
+        height: 80px;
+        padding: 30px 0;
+        cursor: pointer; }
+        .header__hight .header__menu .header__menu__inner .menu__items:hover {
+          background-color: black;
+          opacity: 0.18;
+          color: white; }
+
+.accaunt__panel {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 25px; }
+  .accaunt__panel .accaunt__panel__searc {
+    padding-top: 20px; }
+  .accaunt__panel .accaunt__panel__img {
+    padding-top: 15px;
+    cursor: pointer;
+    float: right; }
+
+.now__palying__container {
+  background: white;
+  border-bottom: 3px solid white;
+  position: relative;
+  overflow: hidden; }
+  .now__palying__container .movie__now__box__wrapper {
+    display: flex;
+    width: 100%;
+    position: relative; }
+  .now__palying__container .movie__now__box {
+    overflow: hidden;
+    width: 100%; }
+  .now__palying__container .now__palying {
+    display: flex; }
+    .now__palying__container .now__palying .movie__now__label {
+      min-width: 35px;
+      height: 368px;
+      position: relative;
+      background: #2998E2; }
+      .now__palying__container .now__palying .movie__now__label h2 {
+        position: absolute;
+        top: 22%;
+        left: 6px;
+        writing-mode: vertical-rl;
+        font-family: Abhaya Libre;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 19px;
+        line-height: 20px;
+        color: white;
+        letter-spacing: 8.55px; }
+    .now__palying__container .now__palying .movie__now {
+      overflow: hidden;
+      position: relative;
+      min-width: 200px;
+      width: 220px;
+      height: 368px;
+      border-right: 5px solid white;
+      color: white; }
+      .now__palying__container .now__palying .movie__now .movie__now__wrapper {
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        position: relative;
+        display: flex;
+        background-image: url("../img/nowplay.png");
+        background-size: cover;
+        background-position: center;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end; }
+      .now__palying__container .now__palying .movie__now .movie__now_description {
+        transition: bottom 1s;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: left;
+        padding-left: 20px;
+        background-color: rgba(65, 65, 65, 0.582);
+        padding: 20px;
+        overflow: hidden;
+        cursor: pointer; }
+        .now__palying__container .now__palying .movie__now .movie__now_description .title {
+          font-size: 18px;
+          line-height: 21px;
+          margin-bottom: 6px; }
+        .now__palying__container .now__palying .movie__now .movie__now_description .movie__now__genre {
+          font-family: Rubik;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 17px;
+          opacity: 0.7; }
+
+.tariler_container {
+  display: flex;
+  background-color: black; }
+  .tariler_container .trailers {
+    display: flex;
+    height: 410px;
+    width: 35px;
+    position: relative;
+    background: #EA4737; }
+    .tariler_container .trailers h2 {
+      position: absolute;
+      top: 12%;
+      left: 7px;
+      writing-mode: vertical-rl;
+      font-family: Abhaya Libre;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 19px;
+      line-height: 20px;
+      color: white;
+      letter-spacing: 8.55px; }
+  .tariler_container .movie__from {
+    color: whitesmoke;
+    background-color: black;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    width: 420px;
+    padding: 20px 10px 10px 20px; }
+    .tariler_container .movie__from .movie__inform {
+      display: flex;
+      width: 100%;
+      justify-content: space-between; }
+      .tariler_container .movie__from .movie__inform img {
+        height: 221px; }
+      .tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners {
+        margin: 0px 10px 10px 20px; }
+        .tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners h1 {
+          margin-top: 5px;
+          font-size: 30px;
+          margin-bottom: 15px; }
+        .tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners .inf__stat {
+          display: flex;
+          justify-content: space-between;
+          font-size: 14px;
+          line-height: 17px;
+          color: #70B0FF;
+          margin-bottom: 15px; }
+          .tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners .inf__stat .inf {
+            color: white; }
+            .tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners .inf__stat .inf:hover {
+              color: #70B0FF;
+              border-bottom: 1px solid #70B0FF; }
+    .tariler_container .movie__from .movie__fotos {
+      display: flex;
+      justify-content: space-between; }
+      .tariler_container .movie__from .movie__fotos .movie__fortos_items {
+        border: 2px solid black;
+        width: 80px;
+        height: 80px; }
+        .tariler_container .movie__from .movie__fotos .movie__fortos_items img {
+          width: 100%;
+          height: 100%; }
+  .tariler_container .trailer__window {
+    width: 690px;
+    background-image: url("../img/trailer.png");
+    position: relative; }
+    .tariler_container .trailer__window h1 {
+      position: absolute;
+      font-family: Actor;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 40px;
+      line-height: 48px;
+      color: white;
+      bottom: 35px;
+      margin-left: 25px;
+      cursor: pointer; }
+    .tariler_container .trailer__window span {
+      font-family: Actor;
+      position: absolute;
+      font-size: 18px;
+      line-height: 22px;
+      color: white;
+      bottom: 14px;
+      margin-left: 25px; }
+    .tariler_container .trailer__window img {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      cursor: pointer; }
+
+.news__container {
+  border-bottom: 2px solid rgba(139, 136, 136, 0.65);
+  background-color: white;
+  width: 100%;
+  padding-top: 20px; }
+  .news__container .news__top {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 15px; }
+  .news__container .last__news {
+    width: 30%; }
+    .news__container .last__news .header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px; }
+      .news__container .last__news .header span {
+        font-family: Actor;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 21px; }
+      .news__container .last__news .header .last__news__menu {
+        display: flex;
+        justify-content: space-between;
+        width: 180px;
+        font-family: Actor;
+        margin-bottom: 15px; }
+        .news__container .last__news .header .last__news__menu .last__news__menu__item:hover {
+          color: #4A90E2;
+          cursor: pointer; }
+    .news__container .last__news .menu__item {
+      display: flex;
+      font-family: Actor;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 19px;
+      line-height: 21px;
+      margin-bottom: 15px; }
+      .news__container .last__news .menu__item .description {
+        margin-left: 20px; }
+        .news__container .last__news .menu__item .description .text {
+          font-size: 14px; }
+          .news__container .last__news .menu__item .description .text a {
+            cursor: pointer; }
+  .news__container .midle__news {
+    width: 40%; }
+    .news__container .midle__news .born__today__wrapper {
+      margin-bottom: 30px;
+      min-height: 182px; }
+    .news__container .midle__news .header {
+      display: flex;
+      justify-content: space-between;
+      font-family: Actor;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 21px; }
+      .news__container .midle__news .header .title {
+        font-size: 24px; }
+      .news__container .midle__news .header a {
+        color: #4A90E2;
+        font-size: 16px;
+        cursor: pointer; }
+    .news__container .midle__news .photo {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 2px 0px 2px; }
+      .news__container .midle__news .photo .photo_item {
+        text-align: center;
+        font-family: Actor;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16   px;
+        line-height: 14px;
+        color: #4A90E2; }
+      .news__container .midle__news .photo img {
+        padding-left: 4px;
+        height: 115px;
+        width: 85px;
+        margin-bottom: 5px;
+        cursor: pointer; }
+  .news__container .wallpapers {
+    width: 28%; }
+    .news__container .wallpapers .header {
+      display: flex;
+      justify-content: space-between;
+      font-family: Actor;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 21px;
+      margin-bottom: 10px; }
+      .news__container .wallpapers .header .title {
+        font-size: 24px; }
+    .news__container .wallpapers .wallpapers_items {
+      cursor: pointer; }
+      .news__container .wallpapers .wallpapers_items .wallpapers_item {
+        height: 120px;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 6px; }
+        .news__container .wallpapers .wallpapers_items .wallpapers_item img {
+          height: 130%;
+          width: 100%; }
+        .news__container .wallpapers .wallpapers_items .wallpapers_item span {
+          position: absolute;
+          font-family: Akronim;
+          font-style: normal;
+          font-weight: normal;
+          color: #FFFFFF;
+          font-size: 24px;
+          line-height: 16px;
+          bottom: 10px;
+          left: 10px;
+          opacity: 0.85; }
+
+.ratings {
+  width: 100%;
+  background-color: white; }
+  .ratings .raitings__wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px; }
+    .ratings .raitings__wrapper .top {
+      width: 33%; }
+      .ratings .raitings__wrapper .top .header {
+        display: flex;
+        justify-content: space-between; }
+        .ratings .raitings__wrapper .top .header .title {
+          font-size: 24px;
+          margin-bottom: 10px; }
+        .ratings .raitings__wrapper .top .header a {
+          padding-top: 5px;
+          cursor: pointer; }
+      .ratings .raitings__wrapper .top .ratings__items {
+        width: 100%; }
+        .ratings .raitings__wrapper .top .ratings__items .ratings__item {
+          display: flex;
+          justify-content: space-between; }
+          .ratings .raitings__wrapper .top .ratings__items .ratings__item .raitings__img {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2px; }
+            .ratings .raitings__wrapper .top .ratings__items .ratings__item .raitings__img span {
+              padding-top: 32px;
+              padding-right: 10px;
+              font-family: Actor;
+              font-style: normal;
+              font-weight: normal;
+              font-size: 30px;
+              line-height: 21px; }
+            .ratings .raitings__wrapper .top .ratings__items .ratings__item .raitings__img img {
+              margin-right: 10px;
+              width: 60px; }
+            .ratings .raitings__wrapper .top .ratings__items .ratings__item .raitings__img .title {
+              cursor: pointer;
+              padding-top: 25px;
+              color: #4A90E2;
+              font-size: 24px; }
+          .ratings .raitings__wrapper .top .ratings__items .ratings__item span {
+            padding-top: 28px;
+            font-size: 26px; }
+    .ratings .raitings__wrapper .random {
+      width: 38%;
+      min-height: 360px;
+      padding-left: 15px;
+      overflow: hidden; }
+      .ratings .raitings__wrapper .random .random__wrapper {
+        height: 100%;
+        background-color: #07131b; }
+        .ratings .raitings__wrapper .random .random__wrapper .header {
+          background-color: white; }
+          .ratings .raitings__wrapper .random .random__wrapper .header .title {
+            font-size: 24px;
+            line-height: 21px;
+            padding-bottom: 10px; }
+        .ratings .raitings__wrapper .random .random__wrapper .random__box .random__img {
+          position: relative; }
+          .ratings .raitings__wrapper .random .random__wrapper .random__box .random__img span {
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            left: 20px;
+            bottom: 10px;
+            font-family: Akronim;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 24px;
+            line-height: 21px;
+            color: white;
+            opacity: 0.85;
+            cursor: pointer; }
+            .ratings .raitings__wrapper .random .random__wrapper .random__box .random__img span h4 {
+              font-family: Actor;
+              opacity: 0.7;
+              font-size: 18px; }
+          .ratings .raitings__wrapper .random .random__wrapper .random__box .random__img img {
+            width: 100%;
+            cursor: pointer; }
+        .ratings .raitings__wrapper .random .random__wrapper .random__box .random__genres {
+          padding: 20px 10px 15px 10px;
+          display: flex;
+          justify-content: space-between;
+          color: white; }
+          .ratings .raitings__wrapper .random .random__wrapper .random__box .random__genres .genre__box {
+            cursor: pointer; }
+        .ratings .raitings__wrapper .random .random__wrapper .random__box .random__btn__wrapper {
+          text-align: center; }
+          .ratings .raitings__wrapper .random .random__wrapper .random__box .random__btn__wrapper .random__btn {
+            margin: 10px 0px 0px 20px;
+            width: 350px;
+            height: 53px;
+            background: rgba(255, 255, 255, 0.187302);
+            padding-top: 12px;
+            cursor: pointer; }
+            .ratings .raitings__wrapper .random .random__wrapper .random__box .random__btn__wrapper .random__btn svg {
+              padding-top: 2px; }
+            .ratings .raitings__wrapper .random .random__wrapper .random__box .random__btn__wrapper .random__btn span {
+              margin-left: 10px;
+              font-family: Akronim;
+              font-style: normal;
+              font-weight: normal;
+              font-size: 32px;
+              line-height: 25px;
+              color: white;
+              opacity: 0.9; }
+    .ratings .raitings__wrapper .weekend {
+      width: 33%; }
+      .ratings .raitings__wrapper .weekend .weekend__wrapper {
+        padding-left: 15px; }
+        .ratings .raitings__wrapper .weekend .weekend__wrapper .header {
+          display: flex;
+          justify-content: space-between; }
+          .ratings .raitings__wrapper .weekend .weekend__wrapper .header .title {
+            font-size: 24px;
+            line-height: 21px;
+            padding-bottom: 10px; }
+          .ratings .raitings__wrapper .weekend .weekend__wrapper .header a {
+            padding-top: 5px;
+            cursor: pointer; }
+        .ratings .raitings__wrapper .weekend .weekend__wrapper .weekend__items .weekend__item {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 2px; }
+          .ratings .raitings__wrapper .weekend .weekend__wrapper .weekend__items .weekend__item .weekend__img {
+            width: 200px;
+            display: flex; }
+            .ratings .raitings__wrapper .weekend .weekend__wrapper .weekend__items .weekend__item .weekend__img img {
+              margin-right: 15px;
+              width: 60px; }
+            .ratings .raitings__wrapper .weekend .weekend__wrapper .weekend__items .weekend__item .weekend__img .title {
+              cursor: pointer;
+              color: #4A90E2;
+              padding-top: 16px;
+              font-size: 22px; }
+          .ratings .raitings__wrapper .weekend .weekend__wrapper .weekend__items .weekend__item span {
+            font-size: 20px;
+            padding-top: 32px; }
+  .ratings .recently {
+    border-bottom: 2px solid rgba(139, 136, 136, 0.65); }
+    .ratings .recently .recently__wrapper {
+      padding: 15px 15px 10px 15px; }
+      .ratings .recently .recently__wrapper .header {
+        font-family: Rubik;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 21px;
+        margin-bottom: 15px; }
+      .ratings .recently .recently__wrapper .recently__photos {
+        height: 112px;
+        overflow: hidden; }
+        .ratings .recently .recently__wrapper .recently__photos .recently__photos__items {
+          width: 140%; }
+          .ratings .recently .recently__wrapper .recently__photos .recently__photos__items img {
+            cursor: pointer; }
+
+.footer {
+  background-color: white;
+  padding-top: 20px; }
+  .footer .title {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 21px;
+    margin-bottom: 15px; }
+  .footer .footer__wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    border-bottom: 2px solid rgba(139, 136, 136, 0.65); }
+    .footer .footer__wrapper .share {
+      width: 31%;
+      height: 150px; }
+      .footer .footer__wrapper .share .share__btn {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px; }
+        .footer .footer__wrapper .share .share__btn img {
+          width: 114px;
+          height: 34px;
+          cursor: pointer; }
+      .footer .footer__wrapper .share .share__description {
+        font-family: Actor;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px; }
+    .footer .footer__wrapper .follow {
+      height: 150px;
+      width: 17%; }
+      .footer .footer__wrapper .follow .follow__btn img {
+        margin: 5px 5px 0 0;
+        cursor: pointer; }
+    .footer .footer__wrapper .gallery {
+      width: 18%; }
+      .footer .footer__wrapper .gallery img {
+        cursor: pointer; }
+    .footer .footer__wrapper .footer__menu {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 15px; }
+      .footer .footer__wrapper .footer__menu .links {
+        height: 22px;
+        display: block;
+        margin-bottom: 4px;
+        font-family: Actor;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 40px;
+        color: #4A90E2;
+        cursor: pointer; }
+        .footer .footer__wrapper .footer__menu .links:hover {
+          border-bottom: 1px solid #4A90E2; }
+  .footer .footer__bottom {
+    padding: 10px 15px 0 15px;
+    display: flex;
+    justify-content: space-between; }
+
+/* The Overlay (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 100%;
+  width: 0;
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: black;
+  /* Black fallback color */
+  background-color: rgba(0, 0, 0, 0.9);
+  /* Black w/opacity */
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */ }
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 25%;
+  /* 25% from the top */
+  width: 100%;
+  /* 100% width */
+  text-align: center;
+  /* Centered text/links */
+  margin-top: 30px;
+  /* 30px top margin to avoid conflict with the close button on smaller screens */ }
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  /* Display block instead of inline */
+  transition: 0.3s;
+  /* Transition effects on hover (color) */ }
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1; }
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  color: white;
+  cursor: pointer; }
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px; }
+
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px; } }
+.embed .hide {
+  display: none; }
+
+.embed .show {
+  display: block; }
+
+.tariler_container.random {
+  display: block; }
+
+.information.tariler_container, .tariler_container.random {
+  display: none;
+  height: 570px;
+  margin: 0 auto;
+  max-width: 90%;
+  margin-top: 8%; }
+  .information.tariler_container .trailers, .tariler_container.random .trailers {
+    min-width: 35px;
+    height: 100%; }
+  .information.tariler_container .information__wrapper, .tariler_container.random .information__wrapper {
+    display: flex;
+    height: 70%; }
+  .information.tariler_container .trailer__side, .tariler_container.random .trailer__side {
+    top: 34%; }
+  .information.tariler_container .movie__from, .tariler_container.random .movie__from {
+    width: 45%;
+    padding: 0;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    .information.tariler_container .movie__from .movie__inform, .tariler_container.random .movie__from .movie__inform {
+      height: 100%; }
+      .information.tariler_container .movie__from .movie__inform img, .tariler_container.random .movie__from .movie__inform img {
+        margin-left: 26px;
+        height: 80%; }
+      .information.tariler_container .movie__from .movie__inform .movie__inform__box, .tariler_container.random .movie__from .movie__inform .movie__inform__box {
+        padding: 0 5px 0 5px;
+        height: 100%; }
+        .information.tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners, .tariler_container.random .movie__from .movie__inform .movie__inform__box .movie__inform__geners {
+          width: 210px; }
+          .information.tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners .title, .tariler_container.random .movie__from .movie__inform .movie__inform__box .movie__inform__geners .title {
+            margin-bottom: 40px; }
+          .information.tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners .inf__stat, .tariler_container.random .movie__from .movie__inform .movie__inform__box .movie__inform__geners .inf__stat {
+            font-size: 18px;
+            margin-bottom: 12px; }
+            .information.tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners .inf__stat .inf, .tariler_container.random .movie__from .movie__inform .movie__inform__box .movie__inform__geners .inf__stat .inf {
+              text-align: right;
+              line-height: 38px; }
+          .information.tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners .genre__box, .tariler_container.random .movie__from .movie__inform .movie__inform__box .movie__inform__geners .genre__box {
+            color: white; }
+        .information.tariler_container .movie__from .movie__inform .movie__inform__box .title, .tariler_container.random .movie__from .movie__inform .movie__inform__box .title {
+          width: 100%;
+          text-align: center;
+          height: 50px;
+          line-height: 28px; }
+  .information.tariler_container .trailer__window, .tariler_container.random .trailer__window {
+    margin-top: 20px; }
+    .information.tariler_container .trailer__window span, .tariler_container.random .trailer__window span {
+      bottom: 15px; }
+    .information.tariler_container .trailer__window h1, .tariler_container.random .trailer__window h1 {
+      top: 8px;
+      margin-left: 34px;
+      line-height: 34px; }
+  .information.tariler_container .movie__description__wrapper, .tariler_container.random .movie__description__wrapper {
+    background-color: #EA4737; }
+  .information.tariler_container .movie__description__actors, .tariler_container.random .movie__description__actors {
+    font-family: 'Rubik'; }
+  .information.tariler_container .movie__description, .tariler_container.random .movie__description {
+    font-size: 24px;
+    min-height: 170px;
+    margin-left: 35px;
+    color: white;
+    font-family: 'Rubik';
+    padding: 25px 10px;
+    background-color: black;
+    word-wrap: normal; }
+
+.information.tariler_container {
+  margin-top: 8%;
+  margin-bottom: 12%; }
+
+.tariler_container.random {
+  display: block;
+  max-width: none;
+  margin-top: 0; }
+  .tariler_container.random .trailer__window__player__array {
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    background-color: rgba(65, 65, 65, 0.582);
+    bottom: 0; }
+  .tariler_container.random h1 {
+    bottom: 26px;
+    left: -10px;
+    margin: 0; }
+
+.card__wrapper {
+  padding-top: 90px; }
+
+.card__person {
+  display: block;
+  margin: 0 auto;
+  height: 530px;
+  width: 320px;
+  transition: 0.3s;
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 40px; }
+  .card__person img {
+    height: 80%;
+    width: 100%; }
+  .card__person .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
+  .card__person .container {
+    padding: 2px 16px;
+    border: none;
+    text-align: center; }
+  .card__person h4 {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 32px;
+    margin: 4px 0 5px 0; }
+  .card__person p {
+    margin-bottom: 8px;
+    font-size: 16px; }
+
+.actors__movie {
+  text-align: center;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 100;
+  font-size: 46px;
+  color: white;
+  margin-bottom: 40px; }
+
+.movie__card__wrapper {
+  height: 450px;
+  width: 290px; }
+
+.movie__cards {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 30px; }
+  .movie__cards .movie__back__inner {
+    width: 100%;
+    height: 450px;
+    background-color: rgba(65, 65, 65, 0.582); }
+
+.movie__card {
+  position: absolute;
+  display: block;
+  margin: 0 auto;
+  height: 450px;
+  width: 290px;
+  transition: 0.3s;
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  background-image: url("../img/nowplay.png");
+  background-size: cover;
+  margin-bottom: 50px; }
+  .movie__card .movie__card_description {
+    position: relative;
+    height: 120px;
+    width: 100%;
+    background-color: rgba(65, 65, 65, 0.582);
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    color: white; }
+    .movie__card .movie__card_description h2 {
+      width: 100%;
+      top: 10px;
+      left: 0;
+      position: absolute;
+      font-size: 30px;
+      line-height: 30px;
+      margin-bottom: 6px;
+      font-family: Rubik;
+      font-style: normal;
+      font-weight: normal;
+      margin-bottom: 20px; }
+    .movie__card .movie__card_description .movie__now__genre {
+      position: absolute;
+      font-family: Rubik;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 17px;
+      opacity: 0.7;
+      width: 100%;
+      left: 0;
+      bottom: 30px; }
+  .movie__card img {
+    height: 75%;
+    width: 100%; }
+  .movie__card .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
+  .movie__card .card__wrapper .container {
+    padding: 2px 16px;
+    border: none;
+    text-align: center; }
+  .movie__card h4 {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 32px;
+    margin: 12px 0 5px 0; }
+  .movie__card p {
+    margin-bottom: 8px; }
+
+.flip-card {
+  background-color: transparent;
+  height: 450px;
+  width: 290px;
+  perspective: 1000px;
+  margin-bottom: 40px; }
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg); }
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
+.flip-card-front {
+  color: black; }
+
+.flip-card-back {
+  color: white;
+  transform: rotateY(180deg); }
+
+.card__wrapper {
+  display: none; }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px; }
+
+.gallery {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 50px; }
+  .gallery h1 {
+    margin-bottom: 30px; }
+  .gallery .photo__box {
+    display: none; }
+  .gallery .movies__photos {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 60px;
+    color: white;
+    padding-bottom: 40px; }
+  .gallery .btn__box {
+    margin-top: 30px;
+    margin-bottom: 40px; }
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 0 4px; }
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 85%;
+  transition: 0.8s; }
+  .column img:hover {
+    width: 100%;
+    z-index: 100; }
+
+.btn__gallery, .btn__click, .btn__click__close {
+  position: relative;
+  background-color: #34cac3;
+  border: none;
+  font-size: 28px;
+  color: #FFFFFF;
+  padding: 10px;
+  width: 130px;
+  text-align: center;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 4px; }
+
+.btn__click, .btn__click__close {
+  width: 170px;
+  padding: 0; }
+
+.btn__gallery:after {
+  content: "";
+  background: #f1f1f1;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s;
+  border-radius: 20px; }
+
+.btn__gallery:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s; }
+
+.random__wrapper {
+  flex-direction: column;
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer; }
+
+.info__random {
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 140px;
+  background-color: rgba(65, 65, 65, 0.582);
+  text-align: center;
+  color: white;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 21px; }
+  .info__random .title {
+    font-size: 36px;
+    margin-top: 30px; }
+  .info__random .genres__random {
+    font-size: 26px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    max-width: 80%;
+    word-wrap: break-word; }
+
+.overlay .search__panel {
+  width: 100%;
+  height: 110px;
+  text-align: center; }
+  .overlay .search__panel .search__wrapper {
+    width: 750px;
+    margin: 0 auto; }
+
+/*# sourceMappingURL=style.css.map */

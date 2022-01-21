@@ -1,0 +1,220 @@
+a {
+  cursor: pointer; }
+
+.no__scroll ::-webkit-scrollbar {
+  width: 0; }
+
+.scroll ::-webkit-scrollbar {
+  width: 1; }
+
+.overlay::-webkit-scrollbar {
+  width: 0; }
+
+.active__movie {
+  top: 0; }
+
+.description__active {
+  bottom: 100% !important; }
+
+.random__btn {
+  margin: 20px 0px 0px 20px;
+  width: 100%;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.187302);
+  padding-top: 6px;
+  padding-left: 16%;
+  border-radius: 4px;
+  cursor: pointer; }
+  .random__btn svg {
+    padding-top: 2px; }
+  .random__btn span {
+    margin-left: 10px;
+    font-family: Akronim;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 25px;
+    color: white;
+    opacity: 0.9; }
+
+.last__news a {
+  cursor: pointer; }
+
+.menu__item h1 {
+  margin-bottom: 6px; }
+.menu__item img {
+  height: 115px;
+  width: 85px; }
+.menu__item .films {
+  flex-direction: column;
+  display: flex;
+  margin-left: 0px; }
+.menu__item a {
+  cursor: pointer; }
+
+.description a {
+  line-height: 1.4; }
+
+.wallpapers a {
+  cursor: pointer; }
+
+#myBtn {
+  opacity: 0;
+  /* Hidden by default */
+  position: fixed;
+  /* Fixed/sticky position */
+  bottom: 20px;
+  /* Place the button at the bottom of the page */
+  right: 30px;
+  /* Place the button 30px from the right */
+  z-index: 99;
+  /* Make sure it does not overlap */
+  border: none;
+  /* Remove borders */
+  outline: none;
+  /* Remove outline */
+  background-color: red;
+  /* Set a background color */
+  color: white;
+  /* Text color */
+  cursor: pointer;
+  /* Add a mouse pointer on hover */
+  padding: 15px;
+  /* Some padding */
+  border-radius: 10px;
+  /* Rounded corners */
+  font-size: 18px;
+  /* Increase font size */
+  transition: .8s; }
+  #myBtn a {
+    color: white;
+    text-decoration: none; }
+
+#myBtn:hover {
+  background-color: #555;
+  /* Add a dark-grey background on hover */ }
+
+.myBtnBody:hover {
+  background-color: #555;
+  /* Add a dark-grey background on hover */ }
+
+.wallpapers__list {
+  margin: 0 auto;
+  display: none;
+  width: 85%;
+  text-align: center; }
+  .wallpapers__list .wallpaper__inner {
+    position: relative;
+    margin-bottom: 20px; }
+  .wallpapers__list h1 {
+    position: absolute;
+    font-family: Akronim;
+    font-style: normal;
+    font-weight: normal;
+    color: #FFFFFF;
+    font-size: 56px;
+    line-height: 16px;
+    bottom: 32px;
+    left: 190px;
+    opacity: 0.85; }
+  .wallpapers__list img {
+    transition: .4s;
+    width: 75%; }
+    .wallpapers__list img:hover {
+      width: 100%; }
+
+header .menu__items a {
+  text-decoration: none;
+  color: black; }
+header .menu__items:hover a {
+  color: white; }
+
+.num__page {
+  display: none;
+  background-color: rgba(85, 84, 84, 0.43);
+  width: 100%;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 23px -17px 57px 37px rgba(255, 255, 255, 0.2); }
+
+.pagination a {
+  color: white;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s; }
+
+.pagination a.active {
+  background-color: dodgerblue;
+  color: white;
+  border-radius: 4px; }
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+  color: black;
+  border-radius: 4px; }
+
+.geners__btn__psnrl {
+  width: 90%;
+  margin: 0 auto; }
+
+.geners__btn {
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px; }
+
+/* Mobile menu */
+.topnav {
+  display: none;
+  width: 50px;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  margin-top: 8px; }
+
+.topnav #myLinks {
+  display: none; }
+
+.topnav h4, .topnav a {
+  float: left;
+  color: black;
+  padding: 14px 5px;
+  margin-right: 15px;
+  text-decoration: none;
+  font-size: 26px; }
+
+.btnMenuMob {
+  padding: 17px 5px !important;
+  margin-right: 0 !important; }
+
+.topnav h4.mobMenu, .topnav a.mobMenu {
+  float: right; }
+
+.topnav h4:hover, .topnav a:hover {
+  background-color: #ddd;
+  color: black; }
+
+.active {
+  background-color: #04AA6D;
+  color: white; }
+
+.fa-bars:before {
+  font-size: 36px; }
+
+.trailer__window__mob {
+  display: none; }
+
+.card__person .container {
+  max-width: 100% !important; }
+
+.btn__genre__active {
+  background-color: dodgerblue; }
+
+/*# sourceMappingURL=style.me.css.map */
