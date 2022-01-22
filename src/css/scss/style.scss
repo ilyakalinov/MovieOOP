@@ -10,6 +10,13 @@ body {
 .overlay {
     scroll-behavior: smooth;
 }
+.open__panel {
+    width: 100% !important;
+}
+#trailer__window{
+    width: 100%;
+    height: 101%;
+}
   body{
     width:98vw;
     height:100vh;
@@ -228,7 +235,7 @@ body {
                 height: 100%;
                 width: 100%;
                 position: relative;
-                display: flex;
+                display: none;
                 background-image: url('../img/nowplay.png');    
                 background-size: cover;
                 background-position: center; 
@@ -888,7 +895,7 @@ body {
  
 .information.tariler_container, .tariler_container.random{
     
-    display: none;
+    display: block;
     height: 570px;
     margin: 0 auto;
     max-width: 90%;
@@ -920,6 +927,7 @@ body {
                 height: 80%;
             }
             .movie__inform__box {
+                width: 50%;
                 padding: 0 5px 0 5px;
                 height: 100%;
                 .movie__inform__geners {
@@ -932,7 +940,8 @@ body {
                         margin-bottom: 12px;
                         .inf {
                             text-align: right;
-                            line-height: 38px;
+                            line-height: 16px;
+                            margin-bottom: 10px;
                         }
                     }
                     .genre__box{
@@ -1186,14 +1195,8 @@ p {
       margin: 0 auto;
       text-align: center;
       margin-top: 50px;
-      h1 {
-          margin-bottom: 30px;
-      }
-    //   .btn__click a, .btn__click__close a {
-    //     color: white;
-    //   }
       .photo__box {
-          display: none;
+          display: block;
       }
       .movies__photos {
         font-family: Rubik;

@@ -1,5 +1,9 @@
 import PopMovies from "./moduls/getPopMovies";
+import InfoPanel from "./moduls/infoPanel";
+import Panel from "./moduls/panel";
 import ScrollTo from "./moduls/services/scrollTo";
+import { videoPlayer } from "./moduls/services/videoPlayer";
+import TrailerPanel from "./moduls/trailerPanel";
 
 const API_KEY = 'api_key=84dadd31473be27d40ab4886ee4c7978',
     BASE_URL = 'https://api.themoviedb.org/3',
@@ -34,11 +38,15 @@ const genres = [{"id":28,"name":"Action"},
                 {"id":53,"name":"Thriller"},
                 {"id":10752,"name":"War"},
                 {"id":37,"name":"Western"}];
-export {genres};
+const rndNum20 = Math.floor(Math.random()*(20-1) + 1)
+export {genres, rndNum20};
 
 window.addEventListener('DOMContentLoaded', () => {
-    new PopMovies(POPULAR_MOVIE).init();
+    videoPlayer();
+    new PopMovies(POPULAR_MOVIE + rndNum20).init();
     new ScrollTo().init();
+    new InfoPanel('.information__item').open();
+    new TrailerPanel('.watch__trailer').open();
     // getData(POPULAR_MOVIE + 1)
     //     .then(data => {
     //         getInfo(data.results[0].id)

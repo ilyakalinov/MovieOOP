@@ -62,6 +62,12 @@
                 <div class="movie__now__box">
                     <div class="movie__now__box__wrapper">
                         <div class="movie__now">
+                            <div class="cssload-thecube pop">
+                                <div class="cssload-cube cssload-c1"></div>
+                                <div class="cssload-cube cssload-c2"></div>
+                                <div class="cssload-cube cssload-c4"></div>
+                                <div class="cssload-cube cssload-c3"></div>
+                            </div>
                             <div class="movie__now__wrapper">
                                 <div class="movie__now_description">
                                     <h2 class="title">
@@ -82,13 +88,19 @@
                                     <img src="./img/buy.png" alt="">
                                     <span>Buy ticket</span>
                                 </div>
-                                <div class="menu__item watch">
+                                <div class="menu__item watch__trailer">
                                     <img src="./img/watch.png" alt="">
                                     <span>Watch trailer</span>
                                 </div>
                             </div>
                         </div>
                         <div class="movie__now">
+                            <div class="cssload-thecube pop">
+                                <div class="cssload-cube cssload-c1"></div>
+                                <div class="cssload-cube cssload-c2"></div>
+                                <div class="cssload-cube cssload-c4"></div>
+                                <div class="cssload-cube cssload-c3"></div>
+                            </div>
                             <div class="movie__now__wrapper">
                                 <div class="movie__now_description">
                                     <h2 class="title">
@@ -109,13 +121,19 @@
                                     <img src="./img/buy.png" alt="">
                                     <span>Buy ticket</span>
                                 </div>
-                                <div class="menu__item watch">
+                                <div class="menu__item watch__trailer">
                                     <img src="./img/watch.png" alt="">
                                     <span>Watch trailer</span>
                                 </div>
                             </div>
                         </div>
                         <div class="movie__now">
+                            <div class="cssload-thecube pop">
+                                <div class="cssload-cube cssload-c1"></div>
+                                <div class="cssload-cube cssload-c2"></div>
+                                <div class="cssload-cube cssload-c4"></div>
+                                <div class="cssload-cube cssload-c3"></div>
+                            </div>
                             <div class="movie__now__wrapper">
                                 <div class="movie__now_description">
                                     <h2 class="title">
@@ -136,13 +154,19 @@
                                     <img src="./img/buy.png" alt="">
                                     <span>Buy ticket</span>
                                 </div>
-                                <div class="menu__item watch">
+                                <div class="menu__item watch__trailer">
                                     <img src="./img/watch.png" alt="">
                                     <span>Watch trailer</span>
                                 </div>
                             </div>
                         </div>
                         <div class="movie__now">
+                            <div class="cssload-thecube pop">
+                                <div class="cssload-cube cssload-c1"></div>
+                                <div class="cssload-cube cssload-c2"></div>
+                                <div class="cssload-cube cssload-c4"></div>
+                                <div class="cssload-cube cssload-c3"></div>
+                            </div>
                             <div class="movie__now__wrapper">
                                 <div class="movie__now_description">
                                     <h2 class="title">
@@ -163,13 +187,19 @@
                                     <img src="./img/buy.png" alt="">
                                     <span>Buy ticket</span>
                                 </div>
-                                <div class="menu__item watch">
+                                <div class="menu__item watch__trailer">
                                     <img src="./img/watch.png " alt="">
                                     <span>Watch trailer</span>
                                 </div>
                             </div>
                         </div>
                         <div class="movie__now">
+                            <div class="cssload-thecube pop">
+                                <div class="cssload-cube cssload-c1"></div>
+                                <div class="cssload-cube cssload-c2"></div>
+                                <div class="cssload-cube cssload-c4"></div>
+                                <div class="cssload-cube cssload-c3"></div>
+                            </div>
                             <div class="movie__now__wrapper">
                                 <div class="movie__now_description">
                                     <h2 class="title">
@@ -190,7 +220,7 @@
                                     <img src="./img/buy.png" alt="">
                                     <span>Buy ticket</span>
                                 </div>
-                                <div class="menu__item watch watch">
+                                <div class="menu__item watch__trailer">
                                     <img src="./img/watch.png" alt="">
                                     <span>Watch trailer</span>
                                 </div>
@@ -677,183 +707,8 @@
     <!-- Overlay -->
     <div id="myNav" class="overlay">
         <h1 href="" class="closebtn">&times;</h1>
-        <div class="overlay-content" id='overlay-content'>
-            <div id="player" data-video=''></div>
-        </div>  
-        <div class="information tariler_container">
-            <div class="information__wrapper">
-                <div class="trailers">
-                    <h2 class="trailer__side">
-                        IFORMATION
-                </div>
-                    <div class="movie__from">
-                        <div class="movie__inform">
-                            <img src="${IMG_URL + poster_path}">
-                            <div class="movie__inform__box">
-                                <div class="movie__inform__geners">
-                                    <h1 class="title">
-                                        ${name}
-                                    </h1>
-                                    <div class="inf__stat">
-                                        <span>year</span>
-                                        <span class="inf year">${release_date.replace(/-/g, ".")}</span>
-                                    </div>
-                                    <div class="inf__stat">
-                                        <span>country</span>
-                                        <span class="inf country">${production_countries[0].name}</span>
-                                    </div>
-                                    <div class="inf__stat">
-                                        <span>Voite</span>
-                                        <span class="inf average">${vote_average}</span>
-                                    </div>
-                                    <div class="inf__stat">
-                                        <span>genres</span>
-                                        <div class="genre__box genre__box">
-                                            ${genres[0].name}
-                                            <div class="genre__box__color"><div>.</div></div>
-                                        </div>
-                                    </div>
-                                    <div class="inf__stat">
-                                        <span>budget</span>
-                                        <span class="inf budget">${budget}</span>
-                                    </div>
-                                    <div class="inf__stat">
-                                        <span>duration</span>
-                                        <span class="inf runtime">${runtime} min</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <div class="overlay__inner">
 
-                    </div>
-                    <div class="trailer__window inform__play" id="trailer__window">
-                        
-                    </div>
-                </div>
-                <div class="movie__description__wrapper">
-                    <div class="trailer__window inform__play_mob" id="trailer__window_play"
-                    style='background-size: cover;
-                            background-position: center;'>
-                    
-                    </div>
-                    <div class="movie__description">
-                        ${overview}
-                    </div>
-                </div>
-                <div class="gallery">
-                    <div class="movies__photos">
-                        <h1>Movie's photo</h1>
-                        <button class="btn__click"><a href="photo__box">Open gallery</a></button>
-                        <button class="btn__click__close"><a>Close gallery</a></button>
-                    </div>
-                    <div class="photo__box">
-                        <div class="btn__box">
-                            <button class="btnOne btn__gallery">1</button>
-                            <button class="btnTwo btn__gallery">2</button>
-                            <button class="btnFour btn__gallery">4</button>
-                        </div>
-                        <div class="row">
-                            <div class="column gallery__column">
-    
-                            </div>
-                            <div class="column gallery__column">
-           
-                            </div>
-                            <div class="column gallery__column">
-                           
-                            </div>
-                            <div class="column gallery__column">
-    
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
-        <div class="num__page">
-            <div class="pagination">
-                    <a id='pre'href="overley">&laquo;</a>
-                        <a class="search__link" href="overley">1</a>
-                        <a class="active search__link" href="overley">2</a>
-                        <a class="search__link" href="overley">3</a>
-                        <a class="search__link" href="overley">4</a>
-                        <a class="search__link" href="overley">5</a>
-                        <a class="search__link" href="overley">6</a>
-                        <a class="search__link" href="overley">7</a>
-                        <a class="search__link" href="overley">8</a>
-                        <a class="search__link" href="overley">9</a>
-                        <a class="search__link" href="overley">10</a>
-                    <a id="next" href="overley">&raquo;</a>
-                </div>
-                <div class="search__panel">
-                    <div class="search__wrapper">
-                        <form id="search__form" onsubmit="event.preventDefault();" role="search">
-                            <label for="search">Search for stuff</label>
-                            <input id="search" type="search" placeholder="Search..." autofocus required />
-                            <button type="submit">Go</button>    
-                        </form>
-                    </div>
-                </div>
-                <div class="geners__btn__psnrl">
-                    <button id="28" class="geners__btn">Action</button>
-                    <button id="12" class="geners__btn">Adventure</button>
-                    <button id="16" class="geners__btn">Animation</button>
-                    <button id="35" class="geners__btn">Comedy</button>
-                    <button id="80" class="geners__btn">Crime</button>
-                    <button id="99" class="geners__btn">Documentary</button>
-                    <button id="18" class="geners__btn">Drama</button>
-                    <button id="10751" class="geners__btn">Family</button>
-                    <button id="14" class="geners__btn">Fantasy</button>
-                    <button id="36" class="geners__btn">History</button>
-                    <button id="27" class="geners__btn">Horror</button>
-                    <button id="10402" class="geners__btn">Music</button>
-                    <button id="9648" class="geners__btn">Mystery</button>
-                    <button id="10749" class="geners__btn">Romance</button>
-                    <button id="878" class="geners__btn">Science Fiction</button>
-                    <button id="10770" class="geners__btn">TV Movie</button>
-                    <button id="53" class="geners__btn">Thriller</button>
-                    <button id="10752" class="geners__btn">War</button>
-                    <button id="37" class="geners__btn">Western</button>
-                </div>
-        </div>
-        <div class="card__wrapper">
-            <div class="card__person">
-                <img src="./img/bd.png" alt="Avatar" style="width:100%">
-                <div class="container">
-                <h4><b>John Doe</b></h4>
-                <p class="known_for_department">"Acting"</p>
-                <p class="popularity">314.408</p>
-                </div>
-            </div>
-            <div class="actors__movie">
-                <h1>Actor's movies</h1>
-            </div>
-            <div class="movie__cards">
-                <div class="movie__card__wrapper flip-card">
-                    <div class="movie__card__inner flip-card-inner">
-                        <div class="movie__card flip-card-front">
-                            <div class="movie__card_description">
-                                <h2 class="title">
-                                    Assassin's Creed
-                                </h2>
-                                <span class="movie__now__genre">
-                                    Action, adventure, fantasy
-                                </span>
-                                </div>
-                        </div>
-                        <div class="movie__card flip-card-back">
-                            <div class="movie__inform__box">
-                                <div class="movie__back__inner">
-                                    <div class="container__play">
-                                        <i class="fas fa-play"></i>
-                                    </div>  
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="wallpapers__list">
         </div>
     </div>
     <button class="nav__btn" id="myBtn" title="Go to top">

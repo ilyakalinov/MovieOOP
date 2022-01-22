@@ -9,6 +9,13 @@ body {
 .overlay {
   scroll-behavior: smooth; }
 
+.open__panel {
+  width: 100% !important; }
+
+#trailer__window {
+  width: 100%;
+  height: 101%; }
+
 body {
   width: 98vw;
   height: 100vh;
@@ -201,7 +208,7 @@ body {
         height: 100%;
         width: 100%;
         position: relative;
-        display: flex;
+        display: none;
         background-image: url("../img/nowplay.png");
         background-size: cover;
         background-position: center;
@@ -741,7 +748,7 @@ body {
   display: block; }
 
 .information.tariler_container, .tariler_container.random {
-  display: none;
+  display: block;
   height: 570px;
   margin: 0 auto;
   max-width: 90%;
@@ -767,6 +774,7 @@ body {
         margin-left: 26px;
         height: 80%; }
       .information.tariler_container .movie__from .movie__inform .movie__inform__box, .tariler_container.random .movie__from .movie__inform .movie__inform__box {
+        width: 50%;
         padding: 0 5px 0 5px;
         height: 100%; }
         .information.tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners, .tariler_container.random .movie__from .movie__inform .movie__inform__box .movie__inform__geners {
@@ -778,7 +786,8 @@ body {
             margin-bottom: 12px; }
             .information.tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners .inf__stat .inf, .tariler_container.random .movie__from .movie__inform .movie__inform__box .movie__inform__geners .inf__stat .inf {
               text-align: right;
-              line-height: 38px; }
+              line-height: 16px;
+              margin-bottom: 10px; }
           .information.tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners .genre__box, .tariler_container.random .movie__from .movie__inform .movie__inform__box .movie__inform__geners .genre__box {
             color: white; }
         .information.tariler_container .movie__from .movie__inform .movie__inform__box .title, .tariler_container.random .movie__from .movie__inform .movie__inform__box .title {
@@ -991,10 +1000,8 @@ body {
   margin: 0 auto;
   text-align: center;
   margin-top: 50px; }
-  .gallery h1 {
-    margin-bottom: 30px; }
   .gallery .photo__box {
-    display: none; }
+    display: block; }
   .gallery .movies__photos {
     font-family: Rubik;
     font-style: normal;

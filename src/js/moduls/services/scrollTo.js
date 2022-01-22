@@ -3,6 +3,7 @@ export default class ScrollTo {
         this.anchors = document.querySelectorAll('.nav__btn');
         this.aDef = document.querySelectorAll('a');
         this.upBtn = document.getElementById("myBtn");
+        this.panel = document.querySelector('.overlay');
     }
 
     getAncors () {
@@ -27,14 +28,14 @@ export default class ScrollTo {
         document.body.onscroll = () => {
             this.scrollOn(this.upBtn)
         };
-        document.querySelector('.overlay').onscroll = () => {
+        this.panel.onscroll = () => {
             this.scrollOn(this.upBtn)
         };
     }
 
     scrollOn(btn) {
-        if( document.getElementById("myNav").style.display = 'block') {
-            if (document.querySelector('.overlay').scrollTop > 50) {
+        if(this.panel.classList.contains('open__panel')) {
+            if (this.panel.scrollTop > 50) {
                 btn.style.opacity = "1";
             } else {
                 btn.style.opacity = "0";
@@ -42,8 +43,7 @@ export default class ScrollTo {
                 btn.addEventListener('click', () => {
                 btn.querySelector('.overlay').scrollTop = 0;
             })
-        } 
-        if(document.getElementById("myNav").style.display = 'none') {
+        } else {
             if (window.scrollY > 50) {
                 btn.style.opacity = "1";
             } else { 
