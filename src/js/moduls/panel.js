@@ -6,6 +6,7 @@ export default class Panel {
         this.panelInner = document.querySelector('.overlay__info');
         this.closebtn = document.querySelector('.closebtn');
         this.numPanel = document.querySelector('.num__page');
+        this.cardPerson = document.querySelector('.card__person');
         this.gallery = document.querySelector('.gallery__box__wrapper');
     }
     openPanel() {
@@ -25,9 +26,10 @@ export default class Panel {
     setStartSetup() {
         this.panel.classList.remove('open__panel');
         this.panelInner.innerHTML = ``;
-        // this.numPanel.style.display = 'none';
         remBtn();
         rmvActClass();
         this.gallery.style.display = 'none';
+        this.numPanel.style.display = 'block'
+        his.cardPerson.style.display = 'none';
     }
 }

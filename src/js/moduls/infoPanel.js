@@ -5,7 +5,7 @@ import { getInfo } from "./services/getData";
 import VideoPlayer from "./services/videoPlayer";
 
 export default class InfoPanel {
-    constructor(trigger) {
+    constructor(...trigger) {
         this.panel = document.querySelector('.overlay');
         this.panelInner = document.querySelector('.overlay__info');
         this.triggers = document.querySelectorAll(trigger);

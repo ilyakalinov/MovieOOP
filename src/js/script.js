@@ -4,7 +4,15 @@ import NumPanel from "./moduls/numPanel";
 import randomMovie from "./moduls/randomMovie";
 import ScrollTo from "./moduls/services/scrollTo";
 import { videoPlayer } from "./moduls/services/videoPlayer";
+import person from "./moduls/person";
 import TrailerPanel from "./moduls/trailerPanel";
+import personCard from "./moduls/personCard";
+import bd from "./moduls/bd";
+import wallpapers from "./moduls/wallpapers";
+import mp from "./moduls/mp";
+import top from "./moduls/top";
+import budget from "./moduls/boxOffice";
+import middleMovie from "./moduls/middle";
 
 const API_KEY = 'api_key=84dadd31473be27d40ab4886ee4c7978',
     BASE_URL = 'https://api.themoviedb.org/3',
@@ -44,12 +52,21 @@ export {genres, rndNum20};
 
 window.addEventListener('DOMContentLoaded', () => {
     videoPlayer();
+    randomMovie();
+    person();
+    bd();
+    personCard('.to_list');
+    wallpapers();
+    mp();
+    top();
+    budget();
+    middleMovie(POPULAR_MOVIE);
     new PopMovies(POPULAR_MOVIE + rndNum20).init();
     new ScrollTo().init();
     new InfoPanel('.information__item').open();
     new TrailerPanel('.watch__trailer').open();
     new NumPanel().init();
-    randomMovie();
+    
     
     // getData(POPULAR_MOVIE + 1)
     //     .then(data => {

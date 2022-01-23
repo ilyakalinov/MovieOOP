@@ -336,8 +336,6 @@
     height: 94%; }
   .overlay .information.tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners .inf__stat, .overlay .tariler_container.random .movie__from .movie__inform .movie__inform__box .movie__inform__geners .inf__stat {
     margin-bottom: 8px; }
-  .overlay .information.tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners .title, .overlay .tariler_container.random .movie__from .movie__inform .movie__inform__box .movie__inform__geners .title {
-    margin-bottom: 20px; }
   .overlay .information.tariler_container .trailers, .overlay .tariler_container.random .trailers {
     height: 106%; } }
 @media screen and (max-width: 1250px) {
