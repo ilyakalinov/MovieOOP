@@ -1197,6 +1197,7 @@ p {
       margin-top: 50px;
       .photo__box {
           display: block;
+          min-height: 725px;
       }
       .movies__photos {
         font-family: Rubik;
@@ -1222,6 +1223,7 @@ p {
     vertical-align: middle;
     width: 85%;
     transition: 0.8s;
+    cursor: pointer;
     &:hover{
         width: 100%;
         z-index: 100;
@@ -1310,4 +1312,9 @@ p {
         }
     }
 
+}
+.card__wrapper {
+    padding: 30px 20px 0;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }

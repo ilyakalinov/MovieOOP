@@ -20,7 +20,7 @@ export default class ScrollTo {
     toBlock(id) {
         document.querySelector(`#${id}`).scrollIntoView({
             behavior: "smooth",
-            block: 'start'
+            block: 'center'
         })
     }
 
@@ -41,7 +41,7 @@ export default class ScrollTo {
                 btn.style.opacity = "0";
             }
                 btn.addEventListener('click', () => {
-                btn.querySelector('.overlay').scrollTop = 0;
+                document.querySelector('.overlay').scrollTop = 0;
             })
         } else {
             if (window.scrollY > 50) {

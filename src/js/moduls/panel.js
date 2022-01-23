@@ -1,11 +1,15 @@
+import { pageBtnStart, remBtn, rmvActClass } from "./numPanel";
+
 export default class Panel {
     constructor() {
         this.panel = document.querySelector('.overlay');
-        this.panelInner = document.querySelector('.overlay__inner');
+        this.panelInner = document.querySelector('.overlay__info');
         this.closebtn = document.querySelector('.closebtn');
+        this.numPanel = document.querySelector('.num__page');
     }
     openPanel() {
         this.panel.classList.add('open__panel');
+        // pageBtnStart();
     }
     closePanel() {
         this.closebtn.addEventListener('click', (e) => {
@@ -21,5 +25,8 @@ export default class Panel {
     setStartSetup() {
         this.panel.classList.remove('open__panel');
         this.panelInner.innerHTML = ``;
+        this.numPanel.style.display = 'none';
+        remBtn();
+        rmvActClass();
     }
 }

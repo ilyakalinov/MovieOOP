@@ -3,7 +3,7 @@ import VideoPlayer from "./services/videoPlayer";
 
 export default class TrailerPanel {
     constructor(triggers) {
-        this.panelInner = document.querySelector('.overlay__inner');
+        this.panelInner = document.querySelector('.overlay__info');
         this.triggers = document.querySelectorAll(triggers);
     }
     open() {

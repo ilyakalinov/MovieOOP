@@ -1,5 +1,6 @@
 import PopMovies from "./moduls/getPopMovies";
 import InfoPanel from "./moduls/infoPanel";
+import NumPanel from "./moduls/numPanel";
 import Panel from "./moduls/panel";
 import ScrollTo from "./moduls/services/scrollTo";
 import { videoPlayer } from "./moduls/services/videoPlayer";
@@ -47,6 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
     new ScrollTo().init();
     new InfoPanel('.information__item').open();
     new TrailerPanel('.watch__trailer').open();
+    new NumPanel().init();
     // getData(POPULAR_MOVIE + 1)
     //     .then(data => {
     //         getInfo(data.results[0].id)

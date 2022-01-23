@@ -1001,7 +1001,8 @@ body {
   text-align: center;
   margin-top: 50px; }
   .gallery .photo__box {
-    display: block; }
+    display: block;
+    min-height: 725px; }
   .gallery .movies__photos {
     font-family: Rubik;
     font-style: normal;
@@ -1022,7 +1023,8 @@ body {
   margin-top: 8px;
   vertical-align: middle;
   width: 85%;
-  transition: 0.8s; }
+  transition: 0.8s;
+  cursor: pointer; }
   .column img:hover {
     width: 100%;
     z-index: 100; }
@@ -1102,5 +1104,10 @@ body {
   .overlay .search__panel .search__wrapper {
     width: 750px;
     margin: 0 auto; }
+
+.card__wrapper {
+  padding: 30px 20px 0;
+  justify-content: space-between;
+  flex-wrap: wrap; }
 
 /*# sourceMappingURL=style.css.map */

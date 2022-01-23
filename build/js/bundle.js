@@ -16,7 +16,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_getData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services/getData */ "./src/js/moduls/services/getData.js");
 
 
-
 class GalleryPanel {
     constructor(id) {
         this.id = id;
@@ -25,10 +24,20 @@ class GalleryPanel {
         this.galleryBox = document.querySelector('.photo__box')
     }
     open() {
+        this.btnOpen
         if(this.galleryBox) {
             this.galleryBox.remove();
         }
         this.gallery = document.querySelector('.gallery');
+        setTimeout(() => {this.gallery.scrollIntoView({
+            behavior: "smooth",
+            block: 'start'
+        });
+        this.btnOpen.querySelector('.loadingio-spinner-spin-ld66ttjruz').style.opacity = '0';
+        this.btnOpen.querySelector('h4').style.opacity = '1';
+        }, 1000)
+        this.btnOpen.querySelector('.loadingio-spinner-spin-ld66ttjruz').style.opacity = '1';
+        this.btnOpen.querySelector('h4').style.opacity = '0.4';
         this.galleryBox = document.createElement('div');
         this.galleryBox.classList.add('photo__box');
         this.galleryBox.innerHTML = `
@@ -62,30 +71,31 @@ class GalleryPanel {
                .then(data => {
                     for(let p = 0; p < Math.floor(data.length/4); p++) {
                         const photoOne = document.createElement('img');
-                        photoOne.classList.add('gallery__item');
+                        photoOne.id = 'gallery__item';
                         photoOne.src = _script__WEBPACK_IMPORTED_MODULE_0__.IMG_URL + data[p].file_path;
-                        this.columns[0].appendChild(photoOne)
-                        this.showPhoto()
+                        this.columns[0].appendChild(photoOne);
+                        this.showPhoto();
                     }
                     for(let p = Math.floor(data.length/4); p < Math.floor((data.length/4)*2); p++) {
                         const photoTwo = document.createElement('img');
-                        photoTwo.classList.add('gallery__item');
+                        photoTwo.id = 'gallery__item';
                         photoTwo.src = _script__WEBPACK_IMPORTED_MODULE_0__.IMG_URL + data[p].file_path;
-                        this.columns[1].appendChild(photoTwo)
-                        this.showPhoto()
+                        this.columns[1].appendChild(photoTwo);
+                        this.showPhoto();
                     }
                     for(let p = Math.floor(data.length/2); p < Math.floor((data.length/4)*3); p++) {
                         const photoThree = document.createElement('img');
-                        photoThree.classList.add('gallery__item');
+                        photoThree.id = 'gallery__item';
                         photoThree.src = _script__WEBPACK_IMPORTED_MODULE_0__.IMG_URL + data[p].file_path;
-                        this.columns[2].appendChild(photoThree)
-                        this.showPhoto()
+                        this.columns[2].appendChild(photoThree);
+                        this.showPhoto();
                     }
                     for(let p = Math.floor((data.length/4)*3); p < data.length; p++) {
                         const photoFour = document.createElement('img');
+                        photoFour.id = 'gallery__item';
                         photoFour.src = _script__WEBPACK_IMPORTED_MODULE_0__.IMG_URL + data[p].file_path;
-                        this.columns[3].appendChild(photoFour)
-                        this.showPhoto()
+                        this.columns[3].appendChild(photoFour);
+                        this.showPhoto();
                     }
                 })
                 this.navGallery();
@@ -98,7 +108,6 @@ class GalleryPanel {
     showPhoto() {
         const imgItem = document.querySelectorAll('.gallery__column img');
         const elements = document.getElementsByClassName("gallery__column");
-        console.log(imgItem)
         imgItem.forEach(img => {
             img.addEventListener('click', (e) => {
                 const target = e.target;
@@ -152,6 +161,7 @@ class GalleryPanel {
             }
         }
     }
+
     init() {
         this.btnOpen.addEventListener('click', () => {
             this.open();
@@ -280,7 +290,7 @@ __webpack_require__.r(__webpack_exports__);
 class InfoPanel {
     constructor(trigger) {
         this.panel = document.querySelector('.overlay');
-        this.panelInner = document.querySelector('.overlay__inner');
+        this.panelInner = document.querySelector('.overlay__info');
         this.triggers = document.querySelectorAll(trigger);
         this.closebtn = document.querySelector('.closebtn');
     }
@@ -323,7 +333,7 @@ class InfoPanel {
                         <div class="movie__inform__box">
                             <div class="movie__inform__geners">
                                 <h1 class="title">
-                                    ${title > 20 ? `${title.slice(0, 20)}...` : title}
+                                    ${title.length > 20 ? `${title.slice(0, 20)}...` : title}
                                 </h1>
                                 <div class="inf__stat">
                                     <span>year</span>
@@ -375,7 +385,12 @@ class InfoPanel {
             <div class="gallery">
                 <div class="movies__photos">
                     <h1>Movie's photo</h1>
-                    <button class="btn__click"><h4 href="photo__box">Open gallery</h4></button>
+                    <button class="btn__click">
+                        <div class="loadingio-spinner-spin-ld66ttjruz"><div class="ldio-ubk447plaon">
+                            <div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div>
+                        </div></div>
+                        <h4 href="photo__box">Open gallery</h4>
+                    </button>
                     <button class="btn__click__close"><h4>Close gallery</h4></button>
                 </div>
                 
@@ -390,6 +405,248 @@ class InfoPanel {
 
 /***/ }),
 
+/***/ "./src/js/moduls/numPanel.js":
+/*!***********************************!*\
+  !*** ./src/js/moduls/numPanel.js ***!
+  \***********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ NumPanel; },
+/* harmony export */   "remBtn": function() { return /* binding */ remBtn; },
+/* harmony export */   "pageBtnStart": function() { return /* binding */ pageBtnStart; },
+/* harmony export */   "rmvActClass": function() { return /* binding */ rmvActClass; }
+/* harmony export */ });
+/* harmony import */ var _script__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../script */ "./src/js/script.js");
+/* harmony import */ var _panel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./panel */ "./src/js/moduls/panel.js");
+/* harmony import */ var _services_getData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/getData */ "./src/js/moduls/services/getData.js");
+
+
+
+
+class NumPanel {
+    constructor() {
+        this.btnOpen = document.querySelector('.watch__online');
+        this.numPanel = document.querySelector('.num__page');
+    }
+    navNumPanel() {
+       
+    }
+    init() {
+        this.btnOpen.addEventListener('click', (e) => {
+            const t = e.target;
+            if(t == this.btnOpen || t.parentElement == this.btnOpen) {
+                new _panel__WEBPACK_IMPORTED_MODULE_1__["default"]().openPanel()
+                this.numPanel.style.display = 'block';
+                search();
+                getMovies();
+            }
+        })
+    }
+}
+
+
+let ids = 1; 
+
+/* Настройка навигации с помощью панели нумерации страниц */
+const pageBtn = document.querySelectorAll('.pagination a'),
+    navPanelPage = document.querySelector('.num__page'),
+    genBtn = document.querySelectorAll('.geners__btn'),
+    formSearch = document.querySelector('#search__form'),
+    informationWrapper = document.querySelector('.information.tariler_container'),
+    cardBlock = document.querySelector('.card__wrapper'),
+    searchInput = document.querySelector('#search');
+
+    remBtn()
+    pageBtn[ids].classList.add('active');
+    pageBtn.forEach((btn, i) => {
+        btn.addEventListener('click', (e) => {
+            if (e.target.id == ('pre') || e.target.id == ('next')) {
+                if(e.target.id == ('pre')){
+                    numPre();
+                }
+                if(e.target.id == ('next')){
+                    numNext();
+                }
+            } else {
+                if (navPanelPage.classList.contains('search') || navPanelPage.classList.contains('genre')) {
+                    if(navPanelPage.classList.contains('genre')) {
+                    (0,_services_getData__WEBPACK_IMPORTED_MODULE_2__.getData)(`https://api.themoviedb.org/3/discover/movie?api_key=84dadd31473be27d40ab4886ee4c7978&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${e.target.textContent}&with_genres=` + navPanelPage.id)
+                        .then(data => setMovies(data))
+                    } else {`https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&language=en-US&query=hfrd&page=1&include_adult=false`
+                    ;(0,_services_getData__WEBPACK_IMPORTED_MODULE_2__.getData)(`${_script__WEBPACK_IMPORTED_MODULE_0__.BASE_URL}/search/movie?${_script__WEBPACK_IMPORTED_MODULE_0__.API_KEY}&language=en-US&query=${navPanelPage.id}&page=${e.target.textContent}`)
+                        .then(data => setMovies(data))
+                    }
+                } else {
+                    getMovies(e.target.textContent)
+                    if(informationWrapper) {
+                        setTimeout(() => document.querySelector('.overlay').scrollTop = 1200, 400)
+                    }
+                }
+                remBtn();
+                btn.classList.add('active');
+
+            }
+        })
+    })
+    /* Строка страниц -10*/
+    function numPre() {
+        if(pageBtn[1].textContent == 1){
+        } else {
+            for(let n = 1; n < 11; n++){
+                const number = pageBtn[n].textContent;
+                pageBtn[n].textContent =  Math.floor(Number(number) - 10);
+            }
+        }
+    }
+
+    /* Строка страниц +10*/
+    function numNext() {
+        if(pageBtn[1].textContent == 991){
+        } else {
+            for(let n = 1; n < 11; n++){
+                const number = pageBtn[n].textContent;
+                pageBtn[n].textContent = Math.floor(Number(number) + 10);
+            }
+        }
+    }
+
+    function remBtn() {
+        pageBtn.forEach(btn => {
+            btn.classList.remove('active')
+        })
+    }
+
+    function pageBtnStart() {
+        for (let n = 1; n < 11; n++){
+            pageBtn[n].textContent = n;
+            pageBtn[n].classList.remove('active')
+        }
+        pageBtn[1].classList.add('active')
+    }
+
+
+    function search () {
+        genBtn.forEach(btn => {
+            btn.addEventListener('click', () => {
+                rmvActClass()
+                btn.classList.add('btn__genre__active')
+                ;(0,_services_getData__WEBPACK_IMPORTED_MODULE_2__.getData)(_script__WEBPACK_IMPORTED_MODULE_0__.SEARCH__GEN + btn.id)
+                .then(data => setMovies(data))
+                
+                if(informationWrapper) {
+                    setTimeout(() => document.querySelector('.overlay').scrollTop = 1200, 400)
+                } else {
+                    setTimeout(() => document.querySelector('.overlay').scrollTop = 230, 400)
+                }
+                navPanelPage.classList.remove('search')
+                navPanelPage.classList.add('genre')
+                navPanelPage.id = btn.id
+                pageBtnStart()
+            })
+        })
+    
+        formSearch.addEventListener('submit', (e) => {
+            ;(0,_services_getData__WEBPACK_IMPORTED_MODULE_2__.getData)(_script__WEBPACK_IMPORTED_MODULE_0__.SEARCH__URL + searchInput.value)
+                .then(data => setMovies(data))
+                if(informationWrapper) {
+                    setTimeout(() => document.querySelector('.overlay').scrollTop = 1200, 400)
+                } else {
+                    setTimeout(() => document.querySelector('.overlay').scrollTop = 230, 400)
+                }
+                navPanelPage.classList.add('search')
+                navPanelPage.classList.remove('genre')
+                navPanelPage.id = searchInput.value
+                pageBtnStart()
+                rmvActClass()
+                searchInput.value = ''
+        })
+    }
+    function rmvActClass() {
+        genBtn.forEach(btn => {
+            btn.classList.remove('btn__genre__active')
+        })
+    }
+
+     /* Получение фильмов для блока карточек */
+     function getMovies (id) {
+        ids = id 
+        ;(0,_services_getData__WEBPACK_IMPORTED_MODULE_2__.getData)(_script__WEBPACK_IMPORTED_MODULE_0__.ALL__MOVIE + id)
+        .then(data => {
+
+            new _panel__WEBPACK_IMPORTED_MODULE_1__["default"]().openPanel();   
+            setMovies(data)  
+            cardBlock.classList.add('all__movie');
+            navPanelPage.style.display = 'block'   
+
+        })
+}
+
+    /* Установка карточек фильмов */
+    function setMovies(movies) {
+    
+        cardBlock.style.display = 'flex';
+
+        cardBlock.innerHTML = '';
+        
+        for(let i = 0; i < movies.results.length; i++) {
+
+            const {
+                poster_path,
+                title,
+                genre_ids,
+                id
+            } = movies.results[i]
+
+            const nowGenres = []
+            genre_ids.forEach(genre => {
+                function setGenre(num) {
+                    _script__WEBPACK_IMPORTED_MODULE_0__.genres.forEach(genre => {
+                            if(genre.id === num) {
+                                nowGenres.push(genre.name)
+                            }
+                    })
+                }
+                setGenre(genre)
+            })  
+
+            const newCard = document.createElement('div');
+            newCard.classList.add('movie__card__wrapper');
+            newCard.classList.add('flip-card');
+            newCard.innerHTML = `
+            <div class="movie__card__inner flip-card-inner">
+                <div class="movie__card flip-card-front" style = 'background-image:url(${poster_path ? (_script__WEBPACK_IMPORTED_MODULE_0__.IMG_URL + poster_path) : './img/nowplay.png>'});'>
+                    <div class="movie__card_description">
+                        <h2 class="title">
+                            ${title.length > 30 ? title.slice(0, 30) + `...` : title}
+                        </h2>
+                        <span class="movie__now__genre">
+                            ${nowGenres}
+                        </span>
+                        </div>
+                </div>
+                <div class="movie__card flip-card-back" style = 'background-image:url(${poster_path ? (_script__WEBPACK_IMPORTED_MODULE_0__.IMG_URL + poster_path) : './img/nowplay.png>'});'>
+                    <div class="movie__inform__box">
+                        <div class="movie__back__inner">
+                            <div id='${id}' class="container__play">
+                                <i id='${id}'class="fas fa-play"></i>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+            cardBlock.appendChild(newCard);
+        }
+    }
+        
+
+
+
+
+/***/ }),
+
 /***/ "./src/js/moduls/panel.js":
 /*!********************************!*\
   !*** ./src/js/moduls/panel.js ***!
@@ -400,14 +657,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ Panel; }
 /* harmony export */ });
+/* harmony import */ var _numPanel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./numPanel */ "./src/js/moduls/numPanel.js");
+
+
 class Panel {
     constructor() {
         this.panel = document.querySelector('.overlay');
-        this.panelInner = document.querySelector('.overlay__inner');
+        this.panelInner = document.querySelector('.overlay__info');
         this.closebtn = document.querySelector('.closebtn');
+        this.numPanel = document.querySelector('.num__page');
     }
     openPanel() {
         this.panel.classList.add('open__panel');
+        // pageBtnStart();
     }
     closePanel() {
         this.closebtn.addEventListener('click', (e) => {
@@ -423,6 +685,9 @@ class Panel {
     setStartSetup() {
         this.panel.classList.remove('open__panel');
         this.panelInner.innerHTML = ``;
+        this.numPanel.style.display = 'none';
+        (0,_numPanel__WEBPACK_IMPORTED_MODULE_0__.remBtn)();
+        (0,_numPanel__WEBPACK_IMPORTED_MODULE_0__.rmvActClass)();
     }
 }
 
@@ -509,7 +774,7 @@ class ScrollTo {
     toBlock(id) {
         document.querySelector(`#${id}`).scrollIntoView({
             behavior: "smooth",
-            block: 'start'
+            block: 'center'
         })
     }
 
@@ -530,7 +795,7 @@ class ScrollTo {
                 btn.style.opacity = "0";
             }
                 btn.addEventListener('click', () => {
-                btn.querySelector('.overlay').scrollTop = 0;
+                document.querySelector('.overlay').scrollTop = 0;
             })
         } else {
             if (window.scrollY > 50) {
@@ -670,7 +935,7 @@ __webpack_require__.r(__webpack_exports__);
 
 class TrailerPanel {
     constructor(triggers) {
-        this.panelInner = document.querySelector('.overlay__inner');
+        this.panelInner = document.querySelector('.overlay__info');
         this.triggers = document.querySelectorAll(triggers);
     }
     open() {
@@ -716,10 +981,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _moduls_getPopMovies__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moduls/getPopMovies */ "./src/js/moduls/getPopMovies.js");
 /* harmony import */ var _moduls_infoPanel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moduls/infoPanel */ "./src/js/moduls/infoPanel.js");
-/* harmony import */ var _moduls_panel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduls/panel */ "./src/js/moduls/panel.js");
-/* harmony import */ var _moduls_services_scrollTo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduls/services/scrollTo */ "./src/js/moduls/services/scrollTo.js");
-/* harmony import */ var _moduls_services_videoPlayer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./moduls/services/videoPlayer */ "./src/js/moduls/services/videoPlayer.js");
-/* harmony import */ var _moduls_trailerPanel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./moduls/trailerPanel */ "./src/js/moduls/trailerPanel.js");
+/* harmony import */ var _moduls_numPanel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduls/numPanel */ "./src/js/moduls/numPanel.js");
+/* harmony import */ var _moduls_panel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduls/panel */ "./src/js/moduls/panel.js");
+/* harmony import */ var _moduls_services_scrollTo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./moduls/services/scrollTo */ "./src/js/moduls/services/scrollTo.js");
+/* harmony import */ var _moduls_services_videoPlayer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./moduls/services/videoPlayer */ "./src/js/moduls/services/videoPlayer.js");
+/* harmony import */ var _moduls_trailerPanel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./moduls/trailerPanel */ "./src/js/moduls/trailerPanel.js");
+
 
 
 
@@ -764,11 +1031,12 @@ const rndNum20 = Math.floor(Math.random()*(20-1) + 1)
 
 
 window.addEventListener('DOMContentLoaded', () => {
-    (0,_moduls_services_videoPlayer__WEBPACK_IMPORTED_MODULE_4__.videoPlayer)();
+    (0,_moduls_services_videoPlayer__WEBPACK_IMPORTED_MODULE_5__.videoPlayer)();
     new _moduls_getPopMovies__WEBPACK_IMPORTED_MODULE_0__["default"](POPULAR_MOVIE + rndNum20).init();
-    new _moduls_services_scrollTo__WEBPACK_IMPORTED_MODULE_3__["default"]().init();
+    new _moduls_services_scrollTo__WEBPACK_IMPORTED_MODULE_4__["default"]().init();
     new _moduls_infoPanel__WEBPACK_IMPORTED_MODULE_1__["default"]('.information__item').open();
-    new _moduls_trailerPanel__WEBPACK_IMPORTED_MODULE_5__["default"]('.watch__trailer').open();
+    new _moduls_trailerPanel__WEBPACK_IMPORTED_MODULE_6__["default"]('.watch__trailer').open();
+    new _moduls_numPanel__WEBPACK_IMPORTED_MODULE_2__["default"]().init();
     // getData(POPULAR_MOVIE + 1)
     //     .then(data => {
     //         getInfo(data.results[0].id)

@@ -7,7 +7,7 @@ import VideoPlayer from "./services/videoPlayer";
 export default class InfoPanel {
     constructor(trigger) {
         this.panel = document.querySelector('.overlay');
-        this.panelInner = document.querySelector('.overlay__inner');
+        this.panelInner = document.querySelector('.overlay__info');
         this.triggers = document.querySelectorAll(trigger);
         this.closebtn = document.querySelector('.closebtn');
     }
@@ -50,7 +50,7 @@ export default class InfoPanel {
                         <div class="movie__inform__box">
                             <div class="movie__inform__geners">
                                 <h1 class="title">
-                                    ${title > 20 ? `${title.slice(0, 20)}...` : title}
+                                    ${title.length > 20 ? `${title.slice(0, 20)}...` : title}
                                 </h1>
                                 <div class="inf__stat">
                                     <span>year</span>
@@ -102,7 +102,12 @@ export default class InfoPanel {
             <div class="gallery">
                 <div class="movies__photos">
                     <h1>Movie's photo</h1>
-                    <button class="btn__click"><h4 href="photo__box">Open gallery</h4></button>
+                    <button class="btn__click">
+                        <div class="loadingio-spinner-spin-ld66ttjruz"><div class="ldio-ubk447plaon">
+                            <div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div>
+                        </div></div>
+                        <h4 href="photo__box">Open gallery</h4>
+                    </button>
                     <button class="btn__click__close"><h4>Close gallery</h4></button>
                 </div>
                 

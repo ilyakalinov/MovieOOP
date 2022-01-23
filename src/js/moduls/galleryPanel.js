@@ -1,6 +1,5 @@
 import { IMG_URL } from "../script";
 import { getData } from "./services/getData";
-
 export default class GalleryPanel {
     constructor(id) {
         this.id = id;
@@ -9,10 +8,20 @@ export default class GalleryPanel {
         this.galleryBox = document.querySelector('.photo__box')
     }
     open() {
+        this.btnOpen
         if(this.galleryBox) {
             this.galleryBox.remove();
         }
         this.gallery = document.querySelector('.gallery');
+        setTimeout(() => {this.gallery.scrollIntoView({
+            behavior: "smooth",
+            block: 'start'
+        });
+        this.btnOpen.querySelector('.loadingio-spinner-spin-ld66ttjruz').style.opacity = '0';
+        this.btnOpen.querySelector('h4').style.opacity = '1';
+        }, 1000)
+        this.btnOpen.querySelector('.loadingio-spinner-spin-ld66ttjruz').style.opacity = '1';
+        this.btnOpen.querySelector('h4').style.opacity = '0.4';
         this.galleryBox = document.createElement('div');
         this.galleryBox.classList.add('photo__box');
         this.galleryBox.innerHTML = `
@@ -46,30 +55,31 @@ export default class GalleryPanel {
                .then(data => {
                     for(let p = 0; p < Math.floor(data.length/4); p++) {
                         const photoOne = document.createElement('img');
-                        photoOne.classList.add('gallery__item');
+                        photoOne.id = 'gallery__item';
                         photoOne.src = IMG_URL + data[p].file_path;
-                        this.columns[0].appendChild(photoOne)
-                        this.showPhoto()
+                        this.columns[0].appendChild(photoOne);
+                        this.showPhoto();
                     }
                     for(let p = Math.floor(data.length/4); p < Math.floor((data.length/4)*2); p++) {
                         const photoTwo = document.createElement('img');
-                        photoTwo.classList.add('gallery__item');
+                        photoTwo.id = 'gallery__item';
                         photoTwo.src = IMG_URL + data[p].file_path;
-                        this.columns[1].appendChild(photoTwo)
-                        this.showPhoto()
+                        this.columns[1].appendChild(photoTwo);
+                        this.showPhoto();
                     }
                     for(let p = Math.floor(data.length/2); p < Math.floor((data.length/4)*3); p++) {
                         const photoThree = document.createElement('img');
-                        photoThree.classList.add('gallery__item');
+                        photoThree.id = 'gallery__item';
                         photoThree.src = IMG_URL + data[p].file_path;
-                        this.columns[2].appendChild(photoThree)
-                        this.showPhoto()
+                        this.columns[2].appendChild(photoThree);
+                        this.showPhoto();
                     }
                     for(let p = Math.floor((data.length/4)*3); p < data.length; p++) {
                         const photoFour = document.createElement('img');
+                        photoFour.id = 'gallery__item';
                         photoFour.src = IMG_URL + data[p].file_path;
-                        this.columns[3].appendChild(photoFour)
-                        this.showPhoto()
+                        this.columns[3].appendChild(photoFour);
+                        this.showPhoto();
                     }
                 })
                 this.navGallery();
@@ -82,7 +92,6 @@ export default class GalleryPanel {
     showPhoto() {
         const imgItem = document.querySelectorAll('.gallery__column img');
         const elements = document.getElementsByClassName("gallery__column");
-        console.log(imgItem)
         imgItem.forEach(img => {
             img.addEventListener('click', (e) => {
                 const target = e.target;
@@ -136,6 +145,7 @@ export default class GalleryPanel {
             }
         }
     }
+
     init() {
         this.btnOpen.addEventListener('click', () => {
             this.open();
