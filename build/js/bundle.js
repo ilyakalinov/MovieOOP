@@ -985,7 +985,9 @@ class Panel {
         this.closebtn = document.querySelector('.closebtn');
         this.numPanel = document.querySelector('.num__page');
         this.cardPerson = document.querySelector('.card__person');
+        this.movieList = document.querySelector('.card__wrapper');
         this.gallery = document.querySelector('.gallery__box__wrapper');
+        this.wallpapersList = document.querySelector('.wallpapers__list');
     }
     openPanel() {
         this.panel.classList.add('open__panel');
@@ -1008,7 +1010,9 @@ class Panel {
         (0,_numPanel__WEBPACK_IMPORTED_MODULE_0__.rmvActClass)();
         this.gallery.style.display = 'none';
         this.numPanel.style.display = 'block'
-        his.cardPerson.style.display = 'none';
+        this.cardPerson.style.display = 'none';
+        this.movieList.style.display = 'none';
+        this.wallpapersList.style.display = 'none';
     }
 }
 
@@ -1535,6 +1539,76 @@ class VideoPlayer{
 
 /***/ }),
 
+/***/ "./src/js/moduls/slider.js":
+/*!*********************************!*\
+  !*** ./src/js/moduls/slider.js ***!
+  \*********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+
+const slider = () => {
+    let position = 0;
+    const slidesToShow = 3,
+        slidesToScroll = 2,
+        container = document.querySelector('.movie__now__box'),
+        track = document.querySelector('.movie__now__box__wrapper'),
+        slide = document.querySelectorAll('.movie__now');
+    
+    const itemWidth = slide[0].offsetWidth;
+    let start = 0;
+    let move = 0;
+    container.addEventListener('touchstart', (e) => {
+        start = e.touches[0].clientX
+    })
+    container.addEventListener('touchend', (e) => {
+
+        move = e.changedTouches[0].clientX
+
+        if(window.body.clientWidth <= 1000 && window.body.clientWidth > 800) {
+            if (-itemWidth*2 < position){
+                if(move < start - 50) {
+                    position -= itemWidth
+                    track.style = `
+                        transform: translateX(${position}px);
+                    `
+                }
+            }
+            if(!position <= 0) {
+                if(move > start + 50) {
+                    position += itemWidth
+                    track.style = `
+                        transform: translateX(${position}px);
+                    `
+                }
+            }
+        }
+        if(window.body.clientWidth <= 800) {
+            if (-itemWidth*3 < position){
+                if(move < start - 50) {
+                    position -= itemWidth
+                    track.style = `
+                        transform: translateX(${position}px);
+                    `
+                }
+            }
+            if(!position <= 0) {
+                if(move > start + 50) {
+                    position += itemWidth
+                    track.style = `
+                        transform: translateX(${position}px);
+                    `
+                }
+            }
+        }
+    })
+}
+/* harmony default export */ __webpack_exports__["default"] = (slider);
+
+
+
+/***/ }),
+
 /***/ "./src/js/moduls/top.js":
 /*!******************************!*\
   !*** ./src/js/moduls/top.js ***!
@@ -1607,22 +1681,24 @@ class TrailerPanel {
     constructor(triggers) {
         this.panelInner = document.querySelector('.overlay__info');
         this.triggers = document.querySelectorAll(triggers);
+        this.numPanel = document.querySelector('.num__page');
     }
     open() {
-            this.triggers.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    new _panel__WEBPACK_IMPORTED_MODULE_0__["default"]().openPanel();
-                    this.trailerPanel = document.createElement('div');
-                    this.trailerPanel.classList.add('trailer__panel');
-                    this.trailerPanel.innerHTML = `
-                    <div class='trailer__panel__player' id='trailer__panel__player'>
-                    </div>
-                    `
-                    this.panelInner.appendChild(this.trailerPanel);
-                    new _services_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"](btn.id, 'trailer__panel__player').createPlayer();
-                })
+        this.triggers.forEach(btn => {
+            btn.addEventListener('click', () => {
+                new _panel__WEBPACK_IMPORTED_MODULE_0__["default"]().openPanel();
+                this.trailerPanel = document.createElement('div');
+                this.trailerPanel.classList.add('trailer__panel');
+                this.trailerPanel.innerHTML = `
+                <div class='trailer__panel__player' id='trailer__panel__player'>
+                </div>
+                `
+                this.panelInner.appendChild(this.trailerPanel);
+                new _services_videoPlayer__WEBPACK_IMPORTED_MODULE_1__["default"](btn.id, 'trailer__panel__player').createPlayer();
+                this.numPanel.style.display = 'none';
             })
-        }
+        })
+    }
 }
 
 /***/ }),
@@ -1748,6 +1824,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _moduls_top__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./moduls/top */ "./src/js/moduls/top.js");
 /* harmony import */ var _moduls_boxOffice__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./moduls/boxOffice */ "./src/js/moduls/boxOffice.js");
 /* harmony import */ var _moduls_middle__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./moduls/middle */ "./src/js/moduls/middle.js");
+/* harmony import */ var _moduls_slider__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./moduls/slider */ "./src/js/moduls/slider.js");
+
 
 
 
@@ -1811,6 +1889,7 @@ window.addEventListener('DOMContentLoaded', () => {
     (0,_moduls_top__WEBPACK_IMPORTED_MODULE_12__["default"])();
     (0,_moduls_boxOffice__WEBPACK_IMPORTED_MODULE_13__["default"])();
     (0,_moduls_middle__WEBPACK_IMPORTED_MODULE_14__["default"])(POPULAR_MOVIE);
+    (0,_moduls_slider__WEBPACK_IMPORTED_MODULE_15__["default"])();
     new _moduls_getPopMovies__WEBPACK_IMPORTED_MODULE_0__["default"](POPULAR_MOVIE + rndNum20).init();
     new _moduls_services_scrollTo__WEBPACK_IMPORTED_MODULE_4__["default"]().init();
     new _moduls_infoPanel__WEBPACK_IMPORTED_MODULE_1__["default"]('.information__item').open();

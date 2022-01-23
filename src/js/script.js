@@ -13,6 +13,7 @@ import mp from "./moduls/mp";
 import top from "./moduls/top";
 import budget from "./moduls/boxOffice";
 import middleMovie from "./moduls/middle";
+import slider from "./moduls/slider";
 
 const API_KEY = 'api_key=84dadd31473be27d40ab4886ee4c7978',
     BASE_URL = 'https://api.themoviedb.org/3',
@@ -61,6 +62,7 @@ window.addEventListener('DOMContentLoaded', () => {
     top();
     budget();
     middleMovie(POPULAR_MOVIE);
+    slider();
     new PopMovies(POPULAR_MOVIE + rndNum20).init();
     new ScrollTo().init();
     new InfoPanel('.information__item').open();
