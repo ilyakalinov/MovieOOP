@@ -115,7 +115,12 @@ export default class InfoPanel {
             </div>
             `;
             this.panelInner.appendChild(this.infoPanel)
-            new VideoPlayer(id, 'trailer__window').createPlayer();
+            if(window.body.clientWidth <= 1250) {
+                new VideoPlayer(id, 'trailer__window_play').createPlayer();
+
+            } else {
+                new VideoPlayer(id, 'trailer__window').createPlayer();
+            }
             new GalleryPanel(id).init();
             this.panelInner.scrollIntoView({
                 behavior: "smooth",

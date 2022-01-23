@@ -85,18 +85,34 @@ const randomMovie = () => {
         getVideo(id)
         .then(videoData => {
             let {key} = videoData.results[Math.floor(Math.random() *  videoData.results.length)];
-                    if(document.querySelector('iframe#random')) {
-                        const play = document.querySelector('iframe#random');
-                        play.src = `https://www.youtube.com/embed/${key}`;
-                        new Spinner('random').createSpinner();
-                        play.style.display = 'none';
-                        play.onload = (() => {
-                            new Spinner('random').deleteSpinner();
-                            play.style.display = 'inline-block';
-                        })
-                    } else {
-                        new VideoPlayer(id, 'random').createPlayer();
+            if(window.body.clientWidth <= 1000) {
+                if(document.querySelector('iframe#random__mob')) {
+                    const play = document.querySelector('iframe#random__mob');
+                    play.src = `https://www.youtube.com/embed/${key}`;
+                    new Spinner('random__mob').createSpinner();
+                    play.style.display = 'none';
+                    play.onload = (() => {
+                        new Spinner('random__mob').deleteSpinner();
+                        play.style.display = 'inline-block';
+                    })
+                } else {
+                    new VideoPlayer(id, 'random__mob').createPlayer();
                 }
+            } else {
+                if(document.querySelector('iframe#random')) {
+                    const play = document.querySelector('iframe#random');
+                    play.src = `https://www.youtube.com/embed/${key}`;
+                    new Spinner('random').createSpinner();
+                    play.style.display = 'none';
+                    play.onload = (() => {
+                        new Spinner('random').deleteSpinner();
+                        play.style.display = 'inline-block';
+                    })
+                } else {
+                    new VideoPlayer(id, 'random').createPlayer();
+                }
+            }
+                   
             })
             .catch(() => {
                 new Spinner('random').createSpinner();

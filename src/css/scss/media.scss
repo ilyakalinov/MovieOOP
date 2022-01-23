@@ -1,4 +1,7 @@
 @media screen and (max-width:1250px){
+    .overlay .information.tariler_container .movie__from .movie__inform img, .overlay .tariler_container.random .movie__from .movie__inform img {
+        margin-left: 20px;
+    }
     /* Header */
     .container{
         max-width: none;
@@ -14,6 +17,7 @@
     /* Random */
     .information.tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners, .tariler_container.random .movie__from .movie__inform .movie__inform__box .movie__inform__geners{
         width: 200px;
+
     }
 
     /* News */
@@ -59,7 +63,8 @@
         font-size: 28px;
     }
     .news__container .midle__news .photo {
-        margin-top: 20px;
+        margin: 0 auto;
+        width: 78% !important;
     }
     .news__container .midle__news .photo img{
         height: 163px;
@@ -80,14 +85,12 @@
         text-align: center;
     }
     .news__container .wallpapers .wallpapers_items .wallpapers_item span {
-        font-size: 60px;
+        font-size: 30px;
+        left: 90px;
     }
     .news__container .wallpapers .wallpapers_items .wallpapers_item img {
         height: 100%;
         width: 80%;
-    }
-    .news__container .wallpapers .wallpapers_items .wallpapers_item span {
-        left: 90px;
     }
     .footer .footer__wrapper .share .share__btn {
         display: block;
@@ -220,6 +223,10 @@
     }
 }
 @media screen and (max-width:900px){
+    .news__container .midle__news .photo {
+        margin: 0 auto;
+        width: 100% !important;
+    }
     .header__hight .header__menu .header__menu__inner {
         width: 370px;
     }
@@ -364,7 +371,23 @@
     }
 
     @media screen and (max-width: 1250px) {
-       
+        .trailer__panel {
+            margin-top: 30% !important;
+        }
+        .genre__box { 
+            width: 81px;
+            height: auto;
+            .genre__box__color {
+                height: auto;
+            }
+        }
+        .information.tariler_container .movie__from .movie__inform .movie__inform__box, .tariler_container.random .movie__from .movie__inform .movie__inform__box {
+            width: 65%;
+        }
+        .information.tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners .inf__stat .inf, .tariler_container.random .movie__from .movie__inform .movie__inform__box .movie__inform__geners .inf__stat .inf, 
+        .information.tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners .genre__box, .tariler_container.random .movie__from .movie__inform .movie__inform__box .movie__inform__geners .genre__box {
+            font-size: 25px;
+        }
         .information.tariler_container .trailer__window, .tariler_container.random .trailer__window {
             display: none;
         }
@@ -375,7 +398,9 @@
             margin-top: 0;
         }
         .information.tariler_container, .tariler_container.random {
-            height: 500px;
+            height: auto;
+            min-height: 500px;
+            margin-bottom: 0px !important;
         }
         .information.tariler_container .information__wrapper, .tariler_container.random .information__wrapper {
             height: 100%;
@@ -394,7 +419,7 @@
             margin-bottom: 39px;
         }
         .information.tariler_container .movie__from .movie__inform img, .tariler_container.random .movie__from .movie__inform img {
-            height: 95%;
+            height: 420px !important;
         }
         .overlay .information.tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners, .overlay .tariler_container.random .movie__from .movie__inform .movie__inform__box .movie__inform__geners {
             width: 510px;
@@ -408,7 +433,12 @@
         }
     }
     @media screen and (max-width: 1000px) {
-
+            .wallpapers__list h1 {
+                font-size: 35px;
+                line-height: 16px;
+                bottom: 15px;
+                left: 130px;
+            }
             .information.tariler_container .movie__from .movie__inform .movie__inform__box, .tariler_container.random .movie__from .movie__inform .movie__inform__box {
                 width: 60%;
             }
@@ -417,6 +447,14 @@
             }
         }
     @media screen and (max-width: 900px) {
+        .trailer__panel {
+            width: 649px !important;
+            height: 370px !important;
+            margin-top: 40% !important;
+        }
+        .inf.country {
+            line-height: 26px!important;
+        }
             .information.tariler_container .movie__from .movie__inform .movie__inform__box, .tariler_container.random .movie__from .movie__inform .movie__inform__box {
                 width: 60%;
             }
@@ -425,7 +463,15 @@
             }
         }
     @media screen and (max-width: 800px) {
-
+        .wallpapers__list h1 {
+                font-size: 31px;
+                line-height: 16px;
+                bottom: 10px;
+                left: 90px;
+            }
+            .genre__box {
+                font-size: 20px!important;
+            }
             .information.tariler_container .movie__from .movie__inform .movie__inform__box, .tariler_container.random .movie__from .movie__inform .movie__inform__box {
                 width: 60%;
             }
@@ -443,7 +489,13 @@
             }
         }
     @media screen and (max-width: 700px) {
-
+        .genre__box {
+            width: 81px !important;
+            height: 40px !important;
+        }
+        .genre__box .genre__box__color {
+            height: 40px !important;
+        }
         .information.tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners .title, .tariler_container.random .movie__from .movie__inform .movie__inform__box .movie__inform__geners .title {
             margin-bottom: 50px;
         }
