@@ -5,14 +5,16 @@ export default class GalleryPanel {
         this.id = id;
         this.btnOpen = document.querySelector('.btn__click');
         this.btnClose = document.querySelector('.btn__click__close');
-        this.galleryBox = document.querySelector('.photo__box')
+        this.galleryBox = document.querySelector('.photo__box');
+        this.gallery = document.querySelector('.gallery__box__wrapper');
     }
     open() {
         this.btnOpen
         if(this.galleryBox) {
             this.galleryBox.remove();
         }
-        this.gallery = document.querySelector('.gallery');
+        
+        this.gallery.style.display = 'block';
         setTimeout(() => {this.gallery.scrollIntoView({
             behavior: "smooth",
             block: 'start'
@@ -87,6 +89,7 @@ export default class GalleryPanel {
 
     close() {
         this.galleryBox.remove();
+        this.gallery.style.display = 'none';
     }
 
     showPhoto() {

@@ -322,7 +322,7 @@ body {
                         font-size: 30px;
                         margin-bottom: 15px;
                     }
-                    margin: 0px 10px 10px 20px;
+                    margin: 0px 10px 10px 10px;
                     .inf__stat{ 
                         display: flex;
                         justify-content: space-between;
@@ -928,7 +928,6 @@ body {
             }
             .movie__inform__box {
                 width: 50%;
-                padding: 0 5px 0 5px;
                 height: 100%;
                 .movie__inform__geners {
                     width: 210px;
@@ -987,7 +986,7 @@ body {
 }
 .information.tariler_container {
     margin-top: 8%;
-    margin-bottom: 12%;
+    margin-bottom: 20%;
 }
 .tariler_container.random{
     display: block;
@@ -1317,4 +1316,11 @@ p {
     padding: 30px 20px 0;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+.gallery__box__wrapper {
+    display: none;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    min-height: 670px;
 }

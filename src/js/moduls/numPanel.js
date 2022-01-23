@@ -1,7 +1,7 @@
 import { ALL__MOVIE, API_KEY, BASE_URL, genres, IMG_URL, SEARCH__GEN, SEARCH__URL } from "../script";
+import InfoPanel from "./infoPanel";
 import Panel from "./panel";
 import { getData } from "./services/getData";
-
 export default class NumPanel {
     constructor() {
         this.btnOpen = document.querySelector('.watch__online');
@@ -22,7 +22,6 @@ export default class NumPanel {
         })
     }
 }
-
 
 let ids = 1; 
 
@@ -57,9 +56,6 @@ const pageBtn = document.querySelectorAll('.pagination a'),
                     }
                 } else {
                     getMovies(e.target.textContent)
-                    if(informationWrapper) {
-                        setTimeout(() => document.querySelector('.overlay').scrollTop = 1200, 400)
-                    }
                 }
                 remBtn();
                 btn.classList.add('active');
@@ -111,12 +107,6 @@ const pageBtn = document.querySelectorAll('.pagination a'),
                 btn.classList.add('btn__genre__active')
                 getData(SEARCH__GEN + btn.id)
                 .then(data => setMovies(data))
-                
-                if(informationWrapper) {
-                    setTimeout(() => document.querySelector('.overlay').scrollTop = 1200, 400)
-                } else {
-                    setTimeout(() => document.querySelector('.overlay').scrollTop = 230, 400)
-                }
                 navPanelPage.classList.remove('search')
                 navPanelPage.classList.add('genre')
                 navPanelPage.id = btn.id
@@ -127,11 +117,6 @@ const pageBtn = document.querySelectorAll('.pagination a'),
         formSearch.addEventListener('submit', (e) => {
             getData(SEARCH__URL + searchInput.value)
                 .then(data => setMovies(data))
-                if(informationWrapper) {
-                    setTimeout(() => document.querySelector('.overlay').scrollTop = 1200, 400)
-                } else {
-                    setTimeout(() => document.querySelector('.overlay').scrollTop = 230, 400)
-                }
                 navPanelPage.classList.add('search')
                 navPanelPage.classList.remove('genre')
                 navPanelPage.id = searchInput.value
@@ -187,14 +172,13 @@ const pageBtn = document.querySelectorAll('.pagination a'),
                 }
                 setGenre(genre)
             })  
-
             const newCard = document.createElement('div');
             newCard.classList.add('movie__card__wrapper');
             newCard.classList.add('flip-card');
             newCard.innerHTML = `
             <div class="movie__card__inner flip-card-inner">
                 <div class="movie__card flip-card-front" style = 'background-image:url(${poster_path ? (IMG_URL + poster_path) : './img/nowplay.png>'});'>
-                    <div class="movie__card_description">
+                    <div class="movie__card_description" id='movie__card_description'>
                         <h2 class="title">
                             ${title.length > 30 ? title.slice(0, 30) + `...` : title}
                         </h2>
@@ -216,6 +200,9 @@ const pageBtn = document.querySelectorAll('.pagination a'),
             `;
             cardBlock.appendChild(newCard);
         }
+        new InfoPanel('.container__play').open();
+
+        
     }
         
 export {remBtn, pageBtnStart, rmvActClass}

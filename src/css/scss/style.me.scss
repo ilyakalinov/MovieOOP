@@ -143,7 +143,7 @@ a {
     }
   }
 .num__page {
-    display: none;
+    // display: none;
     background-color: rgba(85, 84, 84, 0.43);
     width: 100%;
     text-align: center;
@@ -643,3 +643,19 @@ a {
     width: 800px;
     height: 460px;
   }
+.information__wrapper .loadingio-spinner-spin-wffps27ze9i{
+  top: 23%;
+  left: 34%;
+}
+.overlay {
+  .information.tariler_container .movie__from .movie__inform .movie__inform__box, .tariler_container.random .movie__from .movie__inform .movie__inform__box{
+    margin-right: 20px !important;
+  }
+  .information.tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners, .tariler_container.random .movie__from .movie__inform .movie__inform__box .movie__inform__geners {
+    width: 100% !important;
+  }
+  .information.tariler_container .movie__from .movie__inform img, .tariler_container.random .movie__from .movie__inform img {
+      margin-left: 45px;
+      height: 90%;
+  }
+}

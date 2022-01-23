@@ -130,7 +130,6 @@ header .menu__items:hover a {
   color: white; }
 
 .num__page {
-  display: none;
   background-color: rgba(85, 84, 84, 0.43);
   width: 100%;
   text-align: center;
@@ -604,5 +603,17 @@ header .menu__items:hover a {
   margin-top: 15%;
   width: 800px;
   height: 460px; }
+
+.information__wrapper .loadingio-spinner-spin-wffps27ze9i {
+  top: 23%;
+  left: 34%; }
+
+.overlay .information.tariler_container .movie__from .movie__inform .movie__inform__box, .overlay .tariler_container.random .movie__from .movie__inform .movie__inform__box {
+  margin-right: 20px !important; }
+.overlay .information.tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners, .overlay .tariler_container.random .movie__from .movie__inform .movie__inform__box .movie__inform__geners {
+  width: 100% !important; }
+.overlay .information.tariler_container .movie__from .movie__inform img, .overlay .tariler_container.random .movie__from .movie__inform img {
+  margin-left: 45px;
+  height: 90%; }
 
 /*# sourceMappingURL=style.me.css.map */

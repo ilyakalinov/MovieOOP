@@ -276,7 +276,7 @@ body {
       .tariler_container .movie__from .movie__inform img {
         height: 221px; }
       .tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners {
-        margin: 0px 10px 10px 20px; }
+        margin: 0px 10px 10px 10px; }
         .tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners h1 {
           margin-top: 5px;
           font-size: 30px;
@@ -775,7 +775,6 @@ body {
         height: 80%; }
       .information.tariler_container .movie__from .movie__inform .movie__inform__box, .tariler_container.random .movie__from .movie__inform .movie__inform__box {
         width: 50%;
-        padding: 0 5px 0 5px;
         height: 100%; }
         .information.tariler_container .movie__from .movie__inform .movie__inform__box .movie__inform__geners, .tariler_container.random .movie__from .movie__inform .movie__inform__box .movie__inform__geners {
           width: 210px; }
@@ -819,7 +818,7 @@ body {
 
 .information.tariler_container {
   margin-top: 8%;
-  margin-bottom: 12%; }
+  margin-bottom: 20%; }
 
 .tariler_container.random {
   display: block;
@@ -1109,5 +1108,12 @@ body {
   padding: 30px 20px 0;
   justify-content: space-between;
   flex-wrap: wrap; }
+
+.gallery__box__wrapper {
+  display: none;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  min-height: 670px; }
 
 /*# sourceMappingURL=style.css.map */

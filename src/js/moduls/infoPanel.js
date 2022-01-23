@@ -18,6 +18,7 @@ export default class InfoPanel {
                 console.log()
                 this.setInfo(btn.id);
                 new Panel().openPanel();
+                
             })
         })
     }
@@ -36,6 +37,7 @@ export default class InfoPanel {
                 poster_path, 
                 overview
             } = info;
+            this.panelInner.innerHTML = '';
             this.infoPanel = document.createElement('div');
             this.infoPanel.classList.add('information', 'tariler_container');
             this.infoPanel.innerHTML = `
@@ -110,12 +112,15 @@ export default class InfoPanel {
                     </button>
                     <button class="btn__click__close"><h4>Close gallery</h4></button>
                 </div>
-                
             </div>
             `;
             this.panelInner.appendChild(this.infoPanel)
             new VideoPlayer(id, 'trailer__window').createPlayer();
             new GalleryPanel(id).init();
+            this.panelInner.scrollIntoView({
+                behavior: "smooth",
+                block: 'center'
+            }, 50)
         })
     }
 }

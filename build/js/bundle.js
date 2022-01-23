@@ -21,14 +21,16 @@ class GalleryPanel {
         this.id = id;
         this.btnOpen = document.querySelector('.btn__click');
         this.btnClose = document.querySelector('.btn__click__close');
-        this.galleryBox = document.querySelector('.photo__box')
+        this.galleryBox = document.querySelector('.photo__box');
+        this.gallery = document.querySelector('.gallery__box__wrapper');
     }
     open() {
         this.btnOpen
         if(this.galleryBox) {
             this.galleryBox.remove();
         }
-        this.gallery = document.querySelector('.gallery');
+        
+        this.gallery.style.display = 'block';
         setTimeout(() => {this.gallery.scrollIntoView({
             behavior: "smooth",
             block: 'start'
@@ -103,6 +105,7 @@ class GalleryPanel {
 
     close() {
         this.galleryBox.remove();
+        this.gallery.style.display = 'none';
     }
 
     showPhoto() {
@@ -301,6 +304,7 @@ class InfoPanel {
                 console.log()
                 this.setInfo(btn.id);
                 new _panel__WEBPACK_IMPORTED_MODULE_2__["default"]().openPanel();
+                
             })
         })
     }
@@ -319,6 +323,7 @@ class InfoPanel {
                 poster_path, 
                 overview
             } = info;
+            this.panelInner.innerHTML = '';
             this.infoPanel = document.createElement('div');
             this.infoPanel.classList.add('information', 'tariler_container');
             this.infoPanel.innerHTML = `
@@ -393,12 +398,15 @@ class InfoPanel {
                     </button>
                     <button class="btn__click__close"><h4>Close gallery</h4></button>
                 </div>
-                
             </div>
             `;
             this.panelInner.appendChild(this.infoPanel)
             new _services_videoPlayer__WEBPACK_IMPORTED_MODULE_4__["default"](id, 'trailer__window').createPlayer();
             new _galleryPanel__WEBPACK_IMPORTED_MODULE_1__["default"](id).init();
+            this.panelInner.scrollIntoView({
+                behavior: "smooth",
+                block: 'center'
+            }, 50)
         })
     }
 }
@@ -419,8 +427,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "rmvActClass": function() { return /* binding */ rmvActClass; }
 /* harmony export */ });
 /* harmony import */ var _script__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../script */ "./src/js/script.js");
-/* harmony import */ var _panel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./panel */ "./src/js/moduls/panel.js");
-/* harmony import */ var _services_getData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/getData */ "./src/js/moduls/services/getData.js");
+/* harmony import */ var _infoPanel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./infoPanel */ "./src/js/moduls/infoPanel.js");
+/* harmony import */ var _panel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./panel */ "./src/js/moduls/panel.js");
+/* harmony import */ var _services_getData__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/getData */ "./src/js/moduls/services/getData.js");
 
 
 
@@ -437,7 +446,7 @@ class NumPanel {
         this.btnOpen.addEventListener('click', (e) => {
             const t = e.target;
             if(t == this.btnOpen || t.parentElement == this.btnOpen) {
-                new _panel__WEBPACK_IMPORTED_MODULE_1__["default"]().openPanel()
+                new _panel__WEBPACK_IMPORTED_MODULE_2__["default"]().openPanel()
                 this.numPanel.style.display = 'block';
                 search();
                 getMovies();
@@ -445,7 +454,6 @@ class NumPanel {
         })
     }
 }
-
 
 let ids = 1; 
 
@@ -472,17 +480,14 @@ const pageBtn = document.querySelectorAll('.pagination a'),
             } else {
                 if (navPanelPage.classList.contains('search') || navPanelPage.classList.contains('genre')) {
                     if(navPanelPage.classList.contains('genre')) {
-                    (0,_services_getData__WEBPACK_IMPORTED_MODULE_2__.getData)(`https://api.themoviedb.org/3/discover/movie?api_key=84dadd31473be27d40ab4886ee4c7978&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${e.target.textContent}&with_genres=` + navPanelPage.id)
+                    (0,_services_getData__WEBPACK_IMPORTED_MODULE_3__.getData)(`https://api.themoviedb.org/3/discover/movie?api_key=84dadd31473be27d40ab4886ee4c7978&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${e.target.textContent}&with_genres=` + navPanelPage.id)
                         .then(data => setMovies(data))
                     } else {`https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&language=en-US&query=hfrd&page=1&include_adult=false`
-                    ;(0,_services_getData__WEBPACK_IMPORTED_MODULE_2__.getData)(`${_script__WEBPACK_IMPORTED_MODULE_0__.BASE_URL}/search/movie?${_script__WEBPACK_IMPORTED_MODULE_0__.API_KEY}&language=en-US&query=${navPanelPage.id}&page=${e.target.textContent}`)
+                    ;(0,_services_getData__WEBPACK_IMPORTED_MODULE_3__.getData)(`${_script__WEBPACK_IMPORTED_MODULE_0__.BASE_URL}/search/movie?${_script__WEBPACK_IMPORTED_MODULE_0__.API_KEY}&language=en-US&query=${navPanelPage.id}&page=${e.target.textContent}`)
                         .then(data => setMovies(data))
                     }
                 } else {
                     getMovies(e.target.textContent)
-                    if(informationWrapper) {
-                        setTimeout(() => document.querySelector('.overlay').scrollTop = 1200, 400)
-                    }
                 }
                 remBtn();
                 btn.classList.add('active');
@@ -532,14 +537,8 @@ const pageBtn = document.querySelectorAll('.pagination a'),
             btn.addEventListener('click', () => {
                 rmvActClass()
                 btn.classList.add('btn__genre__active')
-                ;(0,_services_getData__WEBPACK_IMPORTED_MODULE_2__.getData)(_script__WEBPACK_IMPORTED_MODULE_0__.SEARCH__GEN + btn.id)
+                ;(0,_services_getData__WEBPACK_IMPORTED_MODULE_3__.getData)(_script__WEBPACK_IMPORTED_MODULE_0__.SEARCH__GEN + btn.id)
                 .then(data => setMovies(data))
-                
-                if(informationWrapper) {
-                    setTimeout(() => document.querySelector('.overlay').scrollTop = 1200, 400)
-                } else {
-                    setTimeout(() => document.querySelector('.overlay').scrollTop = 230, 400)
-                }
                 navPanelPage.classList.remove('search')
                 navPanelPage.classList.add('genre')
                 navPanelPage.id = btn.id
@@ -548,13 +547,8 @@ const pageBtn = document.querySelectorAll('.pagination a'),
         })
     
         formSearch.addEventListener('submit', (e) => {
-            ;(0,_services_getData__WEBPACK_IMPORTED_MODULE_2__.getData)(_script__WEBPACK_IMPORTED_MODULE_0__.SEARCH__URL + searchInput.value)
+            ;(0,_services_getData__WEBPACK_IMPORTED_MODULE_3__.getData)(_script__WEBPACK_IMPORTED_MODULE_0__.SEARCH__URL + searchInput.value)
                 .then(data => setMovies(data))
-                if(informationWrapper) {
-                    setTimeout(() => document.querySelector('.overlay').scrollTop = 1200, 400)
-                } else {
-                    setTimeout(() => document.querySelector('.overlay').scrollTop = 230, 400)
-                }
                 navPanelPage.classList.add('search')
                 navPanelPage.classList.remove('genre')
                 navPanelPage.id = searchInput.value
@@ -572,10 +566,10 @@ const pageBtn = document.querySelectorAll('.pagination a'),
      /* Получение фильмов для блока карточек */
      function getMovies (id) {
         ids = id 
-        ;(0,_services_getData__WEBPACK_IMPORTED_MODULE_2__.getData)(_script__WEBPACK_IMPORTED_MODULE_0__.ALL__MOVIE + id)
+        ;(0,_services_getData__WEBPACK_IMPORTED_MODULE_3__.getData)(_script__WEBPACK_IMPORTED_MODULE_0__.ALL__MOVIE + id)
         .then(data => {
 
-            new _panel__WEBPACK_IMPORTED_MODULE_1__["default"]().openPanel();   
+            new _panel__WEBPACK_IMPORTED_MODULE_2__["default"]().openPanel();   
             setMovies(data)  
             cardBlock.classList.add('all__movie');
             navPanelPage.style.display = 'block'   
@@ -610,14 +604,13 @@ const pageBtn = document.querySelectorAll('.pagination a'),
                 }
                 setGenre(genre)
             })  
-
             const newCard = document.createElement('div');
             newCard.classList.add('movie__card__wrapper');
             newCard.classList.add('flip-card');
             newCard.innerHTML = `
             <div class="movie__card__inner flip-card-inner">
                 <div class="movie__card flip-card-front" style = 'background-image:url(${poster_path ? (_script__WEBPACK_IMPORTED_MODULE_0__.IMG_URL + poster_path) : './img/nowplay.png>'});'>
-                    <div class="movie__card_description">
+                    <div class="movie__card_description" id='movie__card_description'>
                         <h2 class="title">
                             ${title.length > 30 ? title.slice(0, 30) + `...` : title}
                         </h2>
@@ -639,6 +632,9 @@ const pageBtn = document.querySelectorAll('.pagination a'),
             `;
             cardBlock.appendChild(newCard);
         }
+        new _infoPanel__WEBPACK_IMPORTED_MODULE_1__["default"]('.container__play').open();
+
+        
     }
         
 
@@ -666,10 +662,10 @@ class Panel {
         this.panelInner = document.querySelector('.overlay__info');
         this.closebtn = document.querySelector('.closebtn');
         this.numPanel = document.querySelector('.num__page');
+        this.gallery = document.querySelector('.gallery__box__wrapper');
     }
     openPanel() {
         this.panel.classList.add('open__panel');
-        // pageBtnStart();
     }
     closePanel() {
         this.closebtn.addEventListener('click', (e) => {
@@ -685,11 +681,135 @@ class Panel {
     setStartSetup() {
         this.panel.classList.remove('open__panel');
         this.panelInner.innerHTML = ``;
-        this.numPanel.style.display = 'none';
+        // this.numPanel.style.display = 'none';
         (0,_numPanel__WEBPACK_IMPORTED_MODULE_0__.remBtn)();
         (0,_numPanel__WEBPACK_IMPORTED_MODULE_0__.rmvActClass)();
+        this.gallery.style.display = 'none';
     }
 }
+
+/***/ }),
+
+/***/ "./src/js/moduls/randomMovie.js":
+/*!**************************************!*\
+  !*** ./src/js/moduls/randomMovie.js ***!
+  \**************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _script__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../script */ "./src/js/script.js");
+/* harmony import */ var _services_getData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services/getData */ "./src/js/moduls/services/getData.js");
+/* harmony import */ var _services_spinner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/spinner */ "./src/js/moduls/services/spinner.js");
+/* harmony import */ var _services_videoPlayer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/videoPlayer */ "./src/js/moduls/services/videoPlayer.js");
+
+
+
+
+
+
+const randomMovieWrapepr = document.querySelector('.tariler_container.random'),  
+        movieName = randomMovieWrapepr.querySelector('.title'),
+        movieYear = randomMovieWrapepr.querySelector('.year'),
+        movieLanguage = randomMovieWrapepr.querySelector('.language'),
+        movieAverage = randomMovieWrapepr.querySelector('.average'),
+        movieGenre = randomMovieWrapepr.querySelector('.genre__box'),
+        moviePopularity = randomMovieWrapepr.querySelector('.popularity'),
+        movieViem = randomMovieWrapepr.querySelector('.count'),
+        description =randomMovieWrapepr.querySelector('.movie__description'),
+        trailerWindow = randomMovieWrapepr.querySelector('.trailer__window'),
+        bgrInf = randomMovieWrapepr.querySelector('.movie__inform img'),
+        rndBtn = document.querySelector('.random__btn');
+       
+
+const randomMovie = () => {
+    const getRandomMovies = () => {
+
+        getMovies(_script__WEBPACK_IMPORTED_MODULE_0__.POPULAR_MOVIE + `${Math.floor(Math.random()*9) + 1}`)
+        function getMovies(url) {
+            fetch(url)
+                .then(res => res.json())
+                    .then(data => {
+                        let id = Math.floor(Math.random() * 20);
+                        setRandomMovie(data.results[id])
+                        openRNDWithPlayer(data.results[id].id)
+                    })
+        }
+    }
+    setTimeout(getRandomMovies, 800)
+    // setInterval(getRandomMovies, 15000)
+
+    rndBtn.addEventListener('click', () => getRandomMovies());
+
+    function setRandomMovie(info) {
+        const {
+            title,
+            original_language,
+            vote_average,
+            genre_ids,
+            release_date,
+            popularity,
+            vote_count, 
+            overview,
+            backdrop_path,
+            poster_path
+        } = info;
+
+        let genreName = '';
+
+        _script__WEBPACK_IMPORTED_MODULE_0__.genres.forEach((genre, i) => {
+            if(genre_ids[0] === genre.id) {
+                genreName = genre.name
+            }
+        })
+
+        let name = title;
+        if (title.length > 20) {
+            name = `${title.slice(0, 30)}...` 
+        }
+        
+        movieName.textContent = name;
+            movieYear.textContent = release_date.replace(/-/g, '.');
+            movieLanguage.textContent = original_language;
+            movieGenre.textContent = genreName;
+            movieAverage.textContent = vote_average;
+            moviePopularity.textContent = popularity;
+            movieViem.textContent = vote_count;
+            description.textContent = overview;
+            trailerWindow.style = `background-image: url(${_script__WEBPACK_IMPORTED_MODULE_0__.IMG_URL + backdrop_path});
+                                    background-size: cover;
+                                    background-position: center;`
+            bgrInf.src = `${_script__WEBPACK_IMPORTED_MODULE_0__.IMG_URL + poster_path}`
+        
+    }
+    function openRNDWithPlayer(id) {
+        document.querySelectorAll('.loadingio-spinner-spin-wffps27ze9i').forEach(spin => {
+            spin.remove();
+        })
+        ;(0,_services_getData__WEBPACK_IMPORTED_MODULE_1__.getVideo)(id)
+        .then(videoData => {
+            let {key} = videoData.results[Math.floor(Math.random() *  videoData.results.length)];
+                    if(document.querySelector('iframe#random')) {
+                        const play = document.querySelector('iframe#random');
+                        play.src = `https://www.youtube.com/embed/${key}`;
+                        new _services_spinner__WEBPACK_IMPORTED_MODULE_2__["default"]('random').createSpinner();
+                        play.style.display = 'none';
+                        play.onload = (() => {
+                            new _services_spinner__WEBPACK_IMPORTED_MODULE_2__["default"]('random').deleteSpinner();
+                            play.style.display = 'inline-block';
+                        })
+                    } else {
+                        new _services_videoPlayer__WEBPACK_IMPORTED_MODULE_3__["default"](id, 'random').createPlayer();
+                }
+            })
+            .catch(() => {
+                new _services_spinner__WEBPACK_IMPORTED_MODULE_2__["default"]('random').createSpinner();
+                const play = document.querySelector('iframe#random');
+                play.style.display = 'none';
+            })
+        }
+    
+}
+/* harmony default export */ __webpack_exports__["default"] = (randomMovie);
 
 /***/ }),
 
@@ -828,7 +948,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": function() { return /* binding */ Spinner; }
 /* harmony export */ });
 class Spinner{
-    constructor(selector){
+    constructor(selector = ''){
         this.selector = selector;
     }
     createSpinner() {
@@ -844,7 +964,17 @@ class Spinner{
     deleteSpinner() {
         document.querySelector(`#${this.selector}`).parentElement.querySelector('.loadingio-spinner-spin-wffps27ze9i').remove()
     }
-    
+    createSpinnerMov(block){
+        this.spinnerElem = document.createElement('div');
+        this.spinnerElem.classList.add('loadingio-spinner-spin-wffps27ze9i');
+        this.spinnerElem.innerHTML = `
+            <div class="ldio-zv7gliytzt">
+                <div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div>
+            </div>
+        `
+        this.block = block;
+        this.block.appendChild(this.spinnerElem);
+    }
 }
 
 /***/ }),
@@ -982,7 +1112,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _moduls_getPopMovies__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moduls/getPopMovies */ "./src/js/moduls/getPopMovies.js");
 /* harmony import */ var _moduls_infoPanel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moduls/infoPanel */ "./src/js/moduls/infoPanel.js");
 /* harmony import */ var _moduls_numPanel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduls/numPanel */ "./src/js/moduls/numPanel.js");
-/* harmony import */ var _moduls_panel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduls/panel */ "./src/js/moduls/panel.js");
+/* harmony import */ var _moduls_randomMovie__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduls/randomMovie */ "./src/js/moduls/randomMovie.js");
 /* harmony import */ var _moduls_services_scrollTo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./moduls/services/scrollTo */ "./src/js/moduls/services/scrollTo.js");
 /* harmony import */ var _moduls_services_videoPlayer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./moduls/services/videoPlayer */ "./src/js/moduls/services/videoPlayer.js");
 /* harmony import */ var _moduls_trailerPanel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./moduls/trailerPanel */ "./src/js/moduls/trailerPanel.js");
@@ -1037,6 +1167,8 @@ window.addEventListener('DOMContentLoaded', () => {
     new _moduls_infoPanel__WEBPACK_IMPORTED_MODULE_1__["default"]('.information__item').open();
     new _moduls_trailerPanel__WEBPACK_IMPORTED_MODULE_6__["default"]('.watch__trailer').open();
     new _moduls_numPanel__WEBPACK_IMPORTED_MODULE_2__["default"]().init();
+    (0,_moduls_randomMovie__WEBPACK_IMPORTED_MODULE_3__["default"])();
+    
     // getData(POPULAR_MOVIE + 1)
     //     .then(data => {
     //         getInfo(data.results[0].id)
