@@ -15,6 +15,7 @@ import budget from "./moduls/boxOffice";
 import middleMovie from "./moduls/middle";
 import slider from "./moduls/slider";
 import "./moduls/modal"
+import accaunt from "./moduls/accaunt";
 
 
 const API_KEY = 'api_key=84dadd31473be27d40ab4886ee4c7978',
@@ -70,6 +71,8 @@ window.addEventListener('DOMContentLoaded', () => {
     new InfoPanel('.information__item').open();
     new TrailerPanel('.watch__trailer').open();
     new NumPanel().init();
+
+    accaunt();
     
     // getData(POPULAR_MOVIE + 1)
     //     .then(data => {

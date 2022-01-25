@@ -21,10 +21,13 @@
         exit();
     };
 
-    print_r($user);
-    exit();
+    // print_r($user);
+    
 
-    setcookie('user', $user['email'], time() + 3600 * 24 * 30, "/");
+    setcookie('user', $user['email'], time() + 3600, "/");
+    setcookie('movieList', $user['movieList'], time() + 3600, "/");
+    setcookie('login', $user['name'], time() + 3600, "/");
+    setcookie('icon', $user['icon'], time() + 3600, "/");
     $mysql->close();
 
     header('Location: /build/');

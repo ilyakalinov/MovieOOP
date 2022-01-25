@@ -12,14 +12,14 @@ $movie = `2458,555754,2145478`;
 
     $movie = filter_var(trim($_POST['passwordCheck']),
         FILTER_SANITIZE_STRING);
-    if( mb_strlen($login) < 4 || mb_strlen($login) > 16 ) {
-        echo 'Не допустима длинна логина';
+    if( mb_strlen($login) < 4 || mb_strlen($login) > 10 ) {
+        echo 'Не допустима длинна логина: от 4 до 10 символов';
         exit();
-    } else if( mb_strlen($email) < 8 || mb_strlen($email) > 50 ) {
-        echo 'Не допустима длинна почты';
+    } else if( mb_strlen($email) < 8) {
+        echo 'Не допустима длинна почты: от 8';
         exit();
     } else if( mb_strlen($password) < 4 || mb_strlen($password) > 18 ) {
-        echo 'Не допустима длинна пароля';
+        echo 'Не допустима длинна пароля: от 4 до 18 символов';
         exit();
     }
     // $mysql = new mysqli('Localhost', 'id18312732_data', '/iaC35{Z]yC/eu|x', 'id18312732_data_base');

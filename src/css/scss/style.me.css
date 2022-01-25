@@ -865,4 +865,100 @@ a.modal-btn:hover {
   background: #FF206E;
   color: white; }
 
+.accaunt {
+  display: none;
+  position: absolute;
+  height: auto;
+  min-width: 280px;
+  min-height: 300px;
+  background-color: white;
+  top: 0px;
+  right: -14px;
+  z-index: 200;
+  border-radius: 11px;
+  box-shadow: blanchedalmond;
+  box-shadow: -15px 19px 16px 6px rgba(34, 60, 80, 0.59); }
+  .accaunt .name__person {
+    width: 90%;
+    margin: 0 auto;
+    border-bottom: 3px solid #8080804d; }
+    .accaunt .name__person .title {
+      font-size: 26px;
+      cursor: pointer; }
+      .accaunt .name__person .title:hover {
+        color: #1d3f72; }
+    .accaunt .name__person .settings {
+      display: none;
+      position: relative;
+      width: 100%;
+      height: 56px; }
+      .accaunt .name__person .settings .set {
+        width: 35%; }
+    .accaunt .name__person .exit {
+      position: absolute;
+      right: 7px;
+      top: 15px;
+      cursor: pointer;
+      font-size: 20px; }
+      .accaunt .name__person .exit:hover {
+        color: #1d3f72; }
+  .accaunt .name__person .wrapper {
+    display: flex;
+    justify-content: space-between; }
+    .accaunt .name__person .wrapper .title {
+      height: 100%;
+      padding-top: 12%;
+      font-family: Rubik;
+      font-style: normal;
+      font-weight: normal; }
+  .accaunt .list__item, .accaunt .list__item__wrapper {
+    display: flex; }
+  .accaunt .list__item {
+    height: 60px;
+    width: 90%;
+    margin: 6px auto;
+    justify-content: space-between;
+    border-radius: 3px;
+    padding: 0 3px;
+    cursor: pointer; }
+    .accaunt .list__item:hover {
+      box-shadow: 6px 12px 14px 5px rgba(48, 65, 82, 0.29); }
+    .accaunt .list__item .img {
+      height: 100%;
+      width: 40px;
+      background-image: url("../img/nowplay.png");
+      background-size: contain;
+      position: relative; }
+    .accaunt .list__item .data__item {
+      padding-top: 24px;
+      position: relative;
+      transition: 0.4s; }
+      .accaunt .list__item .data__item img {
+        transition: 0.4s;
+        opacity: 0;
+        height: 46px;
+        top: 6px;
+        left: 12px;
+        position: absolute;
+        display: block; }
+      .accaunt .list__item .data__item:hover img {
+        opacity: 1; }
+      .accaunt .list__item .data__item:hover span {
+        opacity: 0; }
+    .accaunt .list__item .num {
+      margin-top: 16px; }
+    .accaunt .list__item .name, .accaunt .list__item .data {
+      margin-top: 22px; }
+    .accaunt .list__item .name, .accaunt .list__item .img {
+      margin-left: 5px; }
+
+.modal-btn.acc__in {
+  width: 58px; }
+
+.accaunt__panel__img {
+  width: 60px; }
+
+.modal-btn.acc {
+  width: 100%; }
+
 /*# sourceMappingURL=style.me.css.map */

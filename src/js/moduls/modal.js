@@ -1,7 +1,11 @@
-document.querySelector(".modal-btn").addEventListener('click', function(e){
-  e.preventDefault()
-  document.querySelector(".overlay__modal").classList.add("active__modal");
-  document.querySelector(".modal").classList.add("active__modal");
+
+document.querySelector(".modal-btn.acc").addEventListener('click', function(e){
+  if((document.querySelector(".modal-btn.acc").classList.contains('unlog'))) {
+    e.preventDefault()
+    document.querySelector(".overlay__modal").classList.add("active__modal");
+    document.querySelector(".modal").classList.add("active__modal");
+  }
+  
 });
 
 document.querySelector(".overlay__modal").addEventListener('click', () => {

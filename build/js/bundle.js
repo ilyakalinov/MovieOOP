@@ -1,6 +1,173 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/js/moduls/accaunt.js":
+/*!**********************************!*\
+  !*** ./src/js/moduls/accaunt.js ***!
+  \**********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _script__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../script */ "./src/js/script.js");
+/* harmony import */ var _infoPanel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./infoPanel */ "./src/js/moduls/infoPanel.js");
+/* harmony import */ var _services_getData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/getData */ "./src/js/moduls/services/getData.js");
+
+
+
+
+const accaunt = () => {
+    const btn = document.querySelector('.modal-btn'),
+        panel = document.querySelector('.accaunt'),
+        settings = document.querySelector('.settings');
+
+    let user = null;
+    let login = null;
+    let icon = null;
+    let movieList = null;
+
+    function getCookie(cookieName, perem) {
+        let cookie = {};
+        document.cookie.split(';').forEach(function(el) {
+            let [key,value] = el.split('=');
+            cookie[key.trim()] = value;
+        })
+        if(perem == "user") {
+            if(!(cookie[cookieName] == undefined)) {
+                user = cookie[cookieName].replace('%40','@');
+            } else {
+                user = null;
+            }
+        }
+
+        if(perem == "login") {
+            if(!(cookie[cookieName] == undefined)) {
+                login = cookie[cookieName].replace('%40','@');
+            } else {
+                login = 'Your name';
+            }
+        }
+        if(perem == "movieList") {
+            if(!(cookie[cookieName] == undefined)) {
+                movieList = cookie[cookieName].replace('%40','@');
+            } else {
+                movieList = null;
+            }
+        }
+        if(perem == "icon") {
+            if(!(cookie[cookieName] == undefined)) {
+                icon = cookie[cookieName].replace('%40','@');
+            } else {
+                icon = './img/acc.png';
+            }
+        }
+        return user, login, movieList, icon;
+    }
+
+    getCookie('user', 'user');
+    getCookie('login', "login");
+    getCookie('movieList', "movieList");
+    getCookie('icon', "icon");
+    console.log(user)
+    console.log(icon)
+    if(!(movieList)) {
+        console.log('null')
+    } else {
+        console.log(movieList.split('%2C'))
+    }
+    console.log(login)
+
+    if ((user == '') || !(user)) {
+        btn.classList.add('unlog');
+    } else {
+        btn.classList.add('log');
+        function setPerson () {
+            document.querySelector('.title.name').textContent = `Hello, ${login} :)`
+            document.querySelector('.modal-btn.acc__in').src = `${icon}`
+            document.querySelector('.modal-btn.acc').src = `${icon}`
+        }
+
+        setPerson();
+        function setWatchList(idx) {
+            const watchList = document.querySelector('.watch_list');
+            watchList.innerHTML = '';
+            console.log(idx)
+            for (let i = 1; i < idx.length + 1; i++) {
+                (0,_services_getData__WEBPACK_IMPORTED_MODULE_2__.getInfo)(idx[i - 1])
+                .then(info =>  {
+                    const {
+                        id,
+                        title, 
+                        release_date, 
+                        poster_path, 
+                    } = info;
+
+                    const listItem = document.createElement('div');
+                    listItem.classList.add('list__item');
+                    listItem.innerHTML = `
+                    <div id='${id}' class="list__item__wrapper">
+                        <div class="img" style='background-image:url("${_script__WEBPACK_IMPORTED_MODULE_0__.IMG_URL + poster_path}");'>
+                        </div>
+                        <span id='${id}' class="name">${title.length > 10 ? title.slice(0, 10) + '...' : title}</span>
+                    </div>
+                    <div class='data__item'>
+                        <span class="data">${release_date}</span>
+                        <img id='${id}' src="./img/trash.png" alt="">
+                    </div>
+                    `;
+                    watchList.appendChild(listItem);
+                    new _infoPanel__WEBPACK_IMPORTED_MODULE_1__["default"]('.list__item__wrapper', '.list__item__wrapper span').open();
+                    watchList.querySelectorAll('.list__item').forEach(item => {
+                        item.addEventListener('click', () => {
+                            panel.style.display = 'none';
+                        })
+                    })
+                    let listMov = idx.join().replace(/,/g, ', ');
+                    watchList.querySelectorAll('.data__item img').forEach(trash => {
+                        trash.addEventListener('click', () => {
+                            trash.parentElement.parentElement.remove()
+                            listMov = listMov.replace(`${trash.id}` ? `${trash.id}` : `${trash.id},`, '');
+                            console.log(listMov)
+
+                            var request = new XMLHttpRequest();
+                            function reqReadyStateChange() {
+                                if (request.readyState == 4 && request.status == 200)
+                                    document.getElementById("output").innerHTML=request.responseText;
+                            }
+                            // строка с параметрами для отправки
+                            var body = "text=" + listMov;
+                            request.open("POST", "./server/update.php");
+                            request.onreadystatechange = reqReadyStateChange;
+                            request.onreadystatechange = reqReadyStateChange;
+                            request.send(body);
+                        })
+                    })
+                });
+            }
+            
+            
+        }
+        setWatchList(movieList.split('%2C'));
+    }
+    document.querySelector('.log').addEventListener('click', () => {
+        panel.style.display = 'block';
+    })
+    document.querySelector('.acc__in').addEventListener('click', () => {
+        panel.style.display = 'none';
+    })
+    document.querySelector('.title.name').addEventListener('click', () => {
+        settings.classList.toggle('show');
+    })
+    
+
+   
+    
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (accaunt);
+
+/***/ }),
+
 /***/ "./src/js/moduls/bd.js":
 /*!*****************************!*\
   !*** ./src/js/moduls/bd.js ***!
@@ -617,10 +784,14 @@ function middleMovie(url) {
   \********************************/
 /***/ (function() {
 
-document.querySelector(".modal-btn").addEventListener('click', function(e){
-  e.preventDefault()
-  document.querySelector(".overlay__modal").classList.add("active__modal");
-  document.querySelector(".modal").classList.add("active__modal");
+
+document.querySelector(".modal-btn.acc").addEventListener('click', function(e){
+  if((document.querySelector(".modal-btn.acc").classList.contains('unlog'))) {
+    e.preventDefault()
+    document.querySelector(".overlay__modal").classList.add("active__modal");
+    document.querySelector(".modal").classList.add("active__modal");
+  }
+  
 });
 
 document.querySelector(".overlay__modal").addEventListener('click', () => {
@@ -1904,6 +2075,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _moduls_slider__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./moduls/slider */ "./src/js/moduls/slider.js");
 /* harmony import */ var _moduls_modal__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./moduls/modal */ "./src/js/moduls/modal.js");
 /* harmony import */ var _moduls_modal__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_moduls_modal__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _moduls_accaunt__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./moduls/accaunt */ "./src/js/moduls/accaunt.js");
+
 
 
 
@@ -1976,6 +2149,8 @@ window.addEventListener('DOMContentLoaded', () => {
     new _moduls_infoPanel__WEBPACK_IMPORTED_MODULE_1__["default"]('.information__item').open();
     new _moduls_trailerPanel__WEBPACK_IMPORTED_MODULE_7__["default"]('.watch__trailer').open();
     new _moduls_numPanel__WEBPACK_IMPORTED_MODULE_2__["default"]().init();
+
+    (0,_moduls_accaunt__WEBPACK_IMPORTED_MODULE_17__["default"])();
     
     // getData(POPULAR_MOVIE + 1)
     //     .then(data => {
