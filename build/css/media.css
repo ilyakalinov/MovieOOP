@@ -288,9 +288,6 @@
   .ratings .raitings__wrapper .weekend .weekend__wrapper .weekend__items .weekend__item span {
     padding-top: 55px; } }
 @media screen and (max-width: 700px) {
-  .accaunt__panel {
-    display: none; }
-
   .container {
     width: 690px; }
 

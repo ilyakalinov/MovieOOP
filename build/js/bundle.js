@@ -1,5 +1,4 @@
 /******/ (function() { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/js/moduls/bd.js":
@@ -8,6 +7,7 @@
   \*****************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _script__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../script */ "./src/js/script.js");
 /* harmony import */ var _services_getData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services/getData */ "./src/js/moduls/services/getData.js");
@@ -58,6 +58,7 @@ const bd = () => {
   \************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _script__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../script */ "./src/js/script.js");
 /* harmony import */ var _infoPanel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./infoPanel */ "./src/js/moduls/infoPanel.js");
@@ -148,6 +149,7 @@ const budget = () => {
   \***************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ GalleryPanel; }
@@ -324,6 +326,7 @@ class GalleryPanel {
   \***************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ PopMovies; }
@@ -415,6 +418,7 @@ class PopMovies {
   \************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ InfoPanel; }
@@ -564,6 +568,7 @@ class InfoPanel {
   \*********************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _script__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../script */ "./src/js/script.js");
 /* harmony import */ var _infoPanel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./infoPanel */ "./src/js/moduls/infoPanel.js");
@@ -606,12 +611,48 @@ function middleMovie(url) {
 
 /***/ }),
 
+/***/ "./src/js/moduls/modal.js":
+/*!********************************!*\
+  !*** ./src/js/moduls/modal.js ***!
+  \********************************/
+/***/ (function() {
+
+document.querySelector(".modal-btn").addEventListener('click', function(e){
+  e.preventDefault()
+  document.querySelector(".overlay__modal").classList.add("active__modal");
+  document.querySelector(".modal").classList.add("active__modal");
+});
+
+document.querySelector(".overlay__modal").addEventListener('click', () => {
+    document.querySelector(".modal").classList.remove("active__modal");
+  document.querySelector(".overlay__modal").classList.remove("active__modal");
+});
+
+document.querySelector(".overlay__modal").click( function(){
+  document.querySelector(".modal").removeClass("active__modal");
+  document.querySelector(".overlay__modal").removeClass("active__modal");
+});
+
+document.querySelectorAll(".modal .options a").forEach(btn => {
+    btn.addEventListener('click', function(e){
+        console.log(document.querySelectorAll(".modal .options a"))
+        if(!e.target.classList.contains("active__modal")){
+            e.target.parentElement.querySelector("a.active__modal").classList.remove("active__modal")
+            e.target.classList.add("active__modal")
+            e.target.parentElement.parentElement.querySelector(".wrapper").classList.toggle("switch")
+        }
+      });
+})
+
+/***/ }),
+
 /***/ "./src/js/moduls/movieList.js":
 /*!************************************!*\
   !*** ./src/js/moduls/movieList.js ***!
   \************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "setPersonMovies": function() { return /* binding */ setPersonMovies; }
@@ -751,6 +792,7 @@ const cardBlock = document.querySelector('.card__wrapper');
   \*****************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _script__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../script */ "./src/js/script.js");
 /* harmony import */ var _infoPanel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./infoPanel */ "./src/js/moduls/infoPanel.js");
@@ -805,6 +847,7 @@ const mp = () => {
   \***********************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ NumPanel; },
@@ -976,6 +1019,7 @@ const pageBtn = document.querySelectorAll('.pagination a'),
   \********************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ Panel; }
@@ -1029,6 +1073,7 @@ class Panel {
   \*********************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _script__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../script */ "./src/js/script.js");
 /* harmony import */ var _infoPanel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./infoPanel */ "./src/js/moduls/infoPanel.js");
@@ -1130,6 +1175,7 @@ const person = () => {
   \*************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _script__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../script */ "./src/js/script.js");
 /* harmony import */ var _movieList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./movieList */ "./src/js/moduls/movieList.js");
@@ -1192,6 +1238,7 @@ function SetCardPerson(id) {
   \**************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _script__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../script */ "./src/js/script.js");
 /* harmony import */ var _services_getData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services/getData */ "./src/js/moduls/services/getData.js");
@@ -1331,6 +1378,7 @@ const randomMovie = () => {
   \*******************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "getData": function() { return /* binding */ getData; },
@@ -1380,6 +1428,7 @@ const getVideo = async (id) => {
   \********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ ScrollTo; }
@@ -1455,6 +1504,7 @@ class ScrollTo {
   \*******************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ Spinner; }
@@ -1497,6 +1547,7 @@ class Spinner{
   \***********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ VideoPlayer; },
@@ -1566,6 +1617,7 @@ class VideoPlayer{
   \*********************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 
 const slider = () => {
@@ -1636,6 +1688,7 @@ const slider = () => {
   \******************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _script__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../script */ "./src/js/script.js");
 /* harmony import */ var _infoPanel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./infoPanel */ "./src/js/moduls/infoPanel.js");
@@ -1689,6 +1742,7 @@ const top = () => {
   \***************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ TrailerPanel; }
@@ -1730,6 +1784,7 @@ class TrailerPanel {
   \*************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _script__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../script */ "./src/js/script.js");
 /* harmony import */ var _panel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./panel */ "./src/js/moduls/panel.js");
@@ -1814,6 +1869,7 @@ function setWalpapers() {
   \**************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "API_KEY": function() { return /* binding */ API_KEY; },
@@ -1846,6 +1902,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _moduls_boxOffice__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./moduls/boxOffice */ "./src/js/moduls/boxOffice.js");
 /* harmony import */ var _moduls_middle__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./moduls/middle */ "./src/js/moduls/middle.js");
 /* harmony import */ var _moduls_slider__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./moduls/slider */ "./src/js/moduls/slider.js");
+/* harmony import */ var _moduls_modal__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./moduls/modal */ "./src/js/moduls/modal.js");
+/* harmony import */ var _moduls_modal__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_moduls_modal__WEBPACK_IMPORTED_MODULE_16__);
+
+
 
 
 
@@ -1917,7 +1977,6 @@ window.addEventListener('DOMContentLoaded', () => {
     new _moduls_trailerPanel__WEBPACK_IMPORTED_MODULE_7__["default"]('.watch__trailer').open();
     new _moduls_numPanel__WEBPACK_IMPORTED_MODULE_2__["default"]().init();
     
-    
     // getData(POPULAR_MOVIE + 1)
     //     .then(data => {
     //         getInfo(data.results[0].id)
@@ -1973,6 +2032,18 @@ window.addEventListener('DOMContentLoaded', () => {
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	!function() {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = function(module) {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				function() { return module['default']; } :
+/******/ 				function() { return module; };
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	}();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	!function() {
 /******/ 		// define getter functions for harmony exports

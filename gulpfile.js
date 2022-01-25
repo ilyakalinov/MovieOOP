@@ -64,9 +64,20 @@ function cssFromScss() {
 				.pipe(gulp.dest('./build/css'))
 				.pipe(browserSync.stream());
 };
+
 function cssFromScssProd() {
 	return gulp.src('./src/css/scss/*.css')
 				.pipe(gulp.dest('./prodaction/css'))
+				.pipe(browserSync.stream());
+};
+function php() {
+	return gulp.src('./src/server/*.php')
+				.pipe(gulp.dest('./build/server'))
+				.pipe(browserSync.stream());
+};
+function phpProd() {
+	return gulp.src('./src/server/*.php')
+				.pipe(gulp.dest('./prodaction/server'))
 				.pipe(browserSync.stream());
 };
 function maps() {
@@ -118,6 +129,7 @@ function watch(){
 	gulp.watch('src/img/**/*'),
 	gulp.watch('./build/css/style.me.css'),
 	gulp.watch('./build/css/style.css'),
+	gulp.watch('./src/server/*.php', php),
 	browserSync.init({
         server: {
             baseDir: "./build",
@@ -131,10 +143,10 @@ function watch(){
 }
 
 let build = gulp.series(clear,
-	gulp.parallel(styles, img, html, jsAll, cssFromScss, maps));
+	gulp.parallel(styles, php, img, html, jsAll, cssFromScss, maps));
 
 gulp.task('build', build);
 gulp.task('prod', gulp.series(clearProd,
-	gulp.parallel(stylesProd, cssFromScssProd, imgProd, htmlProd), scriptProd));
+	gulp.parallel(stylesProd, phpProd, cssFromScssProd, imgProd, htmlProd), scriptProd));
 gulp.task('watch', gulp.series(build,
 	gulp.parallel(script, watch)));

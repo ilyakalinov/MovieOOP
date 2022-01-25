@@ -47,7 +47,7 @@
             
             <div class="accaunt__panel">
                 <div class="accaunt__panel__img">
-                    <img src="./img/account.png" alt="accaunt">
+                    <img class="modal-btn" src="./img/account.png" alt="accaunt">
                 </div>
             </div>
         </header>
@@ -784,9 +784,65 @@
     <button class="nav__btn" id="myBtn" title="Go to top">
         <a href='body'>Top</a>
     </button>
+    <div class='modal'>
+        <div class='close'>
+          <span></span>
+          <span></span>
+        </div>
+        <div class='options'>
+          <a href='#' class='active__modal '>Log In</a>
+          <a href='#'>Sign Up</a>
+        </div>
+        <div class='wrapper'>
+          <div class='content'>
+            <div class='inner'>
+              <div class='side'>
+                <form action="./server/auth.php" method="post">
+                  <p>Already Signed Up?</p>
+                  <div class='field'>
+                    <label for='Lemail'>Email Address</label>
+                    <input  name='email' type='email' id='Lemail' />
+                  </div>
+                  <div class='field'>
+                    <label for='Lpass'>Password</label>
+                    <input  name='password' type='password' id='Lpass' />
+                  </div>
+                  <div class='field'>
+                    <input type='submit' value='Log In' />
+                  </div>
+                </form>
+              </div>
+              <div class='side'>
+                <form action="./server/check.php" method="post">
+                  <p>New Here?</p>
+                  <div class='field'>
+                    <label for='name'>Name</label>
+                    <input  name='login' type='name' id='name' />
+                  </div>
+                  <div class='field'>
+                    <label for='Semail'>Email Address</label>
+                    <input  name='email' type='email' id='Semail' />
+                  </div>
+                  <div class='field'>
+                    <label for='Spass'>Password</label>
+                    <input  name='password' type='password' id='Spass' />
+                  </div>
+                  <div class='field'>
+                    <label for='Spass2'>Check Password</label>
+                    <input  name='passwordCheck' type='password' id='Spass2' />
+                  </div>
+                  <div class='field'>
+                    <input type='submit' value='Sign Up' />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class='overlay__modal'></div>
 </body>
 <script src='./js/bundle.js'></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="../lightslider.js"></script>
 </html>
