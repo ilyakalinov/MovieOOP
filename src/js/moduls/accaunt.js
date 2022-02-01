@@ -42,7 +42,8 @@ const accaunt = () => {
         }
         if(perem == "icon") {
             if(!(cookie[cookieName] == undefined)) {
-                icon = cookie[cookieName].replace('%40','@');
+                // icon = cookie[cookieName].replace('%40','@');
+                icon = './img/acc.png';
             } else {
                 icon = './img/acc.png';
             }
@@ -114,18 +115,27 @@ const accaunt = () => {
                             trash.parentElement.parentElement.remove()
                             listMov = listMov.replace(`${trash.id}` ? `${trash.id}` : `${trash.id},`, '');
                             console.log(listMov)
+                            let data = {
+                                    movie: listMov,
+                                    email: user
+                                };
+                            let postdata = JSON.stringify(data);
+                            const postData = async (url, resu) => {
+                                console.log(resu);
+                                let res = fetch(url, {
+                                    method: "POST",
+                                    headers: {
+                                        'Content-Type': 'application/json;charset=utf-8'
+                                      },
+                                    body: `${resu}`
+                                });
 
-                            var request = new XMLHttpRequest();
-                            function reqReadyStateChange() {
-                                if (request.readyState == 4 && request.status == 200)
-                                    document.getElementById("output").innerHTML=request.responseText;
+                                return await res;
                             }
-                            // строка с параметрами для отправки
-                            var body = "text=" + listMov;
-                            request.open("POST", "./server/update.php");
-                            request.onreadystatechange = reqReadyStateChange;
-                            request.onreadystatechange = reqReadyStateChange;
-                            request.send(body);
+                            postData('./server/update.php', postdata)
+                                .then(res => {
+                                    console.log(res);
+                                })
                         })
                     })
                 });

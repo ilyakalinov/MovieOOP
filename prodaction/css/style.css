@@ -154,6 +154,7 @@ body {
 
 .accaunt__panel {
   display: flex;
+  position: relative;
   justify-content: space-between;
   margin-right: 25px; }
   .accaunt__panel .accaunt__panel__searc {
@@ -739,6 +740,9 @@ body {
     font-size: 40px;
     top: 15px;
     right: 35px; } }
+.show {
+  display: block; }
+
 .embed .hide {
   display: none; }
 
